@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicStructures/Basic_ws/devel
+
+Name: Basic_pkg
+Description: Description of Basic_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

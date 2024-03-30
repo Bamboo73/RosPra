@@ -1,0 +1,1 @@
+urdf文件已经复制到xacro 的 robot当中了， urdf目录下的文件没用了已经。

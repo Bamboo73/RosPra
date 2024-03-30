@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="basic_wbr_pkg">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="8.15089380098816" />
+      <inertia
+        ixx="0.0688906731120014"
+        ixy="-9.75781955236957E-19"
+        ixz="-1.87350135405496E-19"
+        iyy="0.0135025446900494"
+        iyz="1.95156391047391E-18"
+        izz="0.0688906731120014" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+  <link
+    name="left_thigh_link">
+    <inertial>
+      <origin
+        xyz="0.15 -8.32667268468867E-17 -0.00499999999999995"
+        rpy="0 0 0" />
+      <mass
+        value="0.437487209630772" />
+      <inertia
+        ixx="9.56832762179494E-05"
+        ixy="5.42101086242752E-19"
+        ixz="-5.76285460492069E-21"
+        iyy="0.00394852049291032"
+        iyz="-2.79847523146801E-22"
+        izz="0.00403691231563443" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/left_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/left_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint
+    name="left_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.18 0"
+      rpy="1.5708 0.54612 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+
+
+  <link
+    name="left_shank_link">
+    <inertial>
+      <origin
+        xyz="0.15 -1.04083408558608E-17 0.0350000000000001"
+        rpy="0 0 0" />
+      <mass
+        value="0.508908177017483" />
+      <inertia
+        ixx="0.000121922183215571"
+        ixy="2.98155597433514E-19"
+        ixz="-0.000152681402964464"
+        iyy="0.00558173116610893"
+        iyz="1.34491861246055E-20"
+        izz="0.00564767066545193" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/left_shank_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/left_shank_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint
+    name="left_knee_joint"
+    type="revolute">
+    <origin
+      xyz="0.3 0 -0.01"
+      rpy="0 0 -1.7371" />
+    <parent
+      link="left_thigh_link" />
+    <child
+      link="left_shank_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+
+
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.49880108324396E-15 -6.06459327201492E-15 0.0600000000000001"
+        rpy="0 0 0" />
+      <mass
+        value="0.370607820219958" />
+      <inertia
+        ixx="0.000261554099622148"
+        ixy="-5.42101086242752E-20"
+        ixz="-3.85588731069336E-21"
+        iyy="0.000261554099622148"
+        iyz="1.00664796610483E-20"
+        izz="0.000498401011229632" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.3 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="left_shank_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+
+
+
+  <link
+    name="right_thigh_link">
+    <inertial>
+      <origin
+        xyz="0.15 8.32667268468867E-17 0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.437487209630772" />
+      <inertia
+        ixx="9.56832762179488E-05"
+        ixy="4.43845264361253E-19"
+        ixz="-6.89268406029142E-21"
+        iyy="0.00394852049291032"
+        iyz="-4.46583295823664E-21"
+        izz="0.00403691231563442" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/right_thigh_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/right_thigh_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+  <joint
+    name="right_hip_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.18 0"
+      rpy="1.5708 0.54612 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_thigh_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+
+
+
+
+  <link
+    name="right_shank_link">
+    <inertial>
+      <origin
+        xyz="0.149999999999999 -5.83387504971E-15 -0.035"
+        rpy="0 0 0" />
+      <mass
+        value="0.508908177017483" />
+      <inertia
+        ixx="0.000121922183215572"
+        ixy="2.87991202066462E-19"
+        ixz="0.000152681402964464"
+        iyy="0.00558173116610893"
+        iyz="-2.7289178677024E-20"
+        izz="0.00564767066545193" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/right_shank_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/right_shank_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+
+  <joint
+    name="right_knee_joint"
+    type="revolute">
+    <origin
+      xyz="0.3 0 0.01"
+      rpy="0 0 -1.7371" />
+    <parent
+      link="right_thigh_link" />
+    <child
+      link="right_shank_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+
+
+
+
+
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.33226762955019E-15 -6.0507154842071E-15 -0.06"
+        rpy="0 0 0" />
+      <mass
+        value="0.370607820219958" />
+      <inertia
+        ixx="0.000261554099622148"
+        ixy="1.35525271560688E-20"
+        ixz="-9.39955618294363E-21"
+        iyy="0.000261554099622148"
+        iyz="7.8154619221772E-21"
+        izz="0.000498401011229632" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_wbr_pkg/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.3 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="right_shank_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+
+  
+</robot>

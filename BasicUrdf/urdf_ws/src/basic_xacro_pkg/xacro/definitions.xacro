@@ -1,0 +1,12 @@
+<robot name="definitions" xmlns:xacro="http://wiki.ros.org/xacro">
+<!-- 本xacro文件用于存放一些基本的 属性 和 宏 -->
+<!-- 部分内容也会用引用的方式呈现出来 -->
+    <xacro:include filename = "inertial.xacro"/>
+
+     <!-- 封装变量、常量 -->
+    <xacro:property name="PI" value="3.141"/>
+    <!-- 宏:黑色设置 -->
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0" />
+    </material>
+</robot>

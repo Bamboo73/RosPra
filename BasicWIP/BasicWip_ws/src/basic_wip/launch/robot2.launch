@@ -1,0 +1,27 @@
+<launch>
+    <!-- <arg name="paused" default="true" /> -->
+    <!-- 将 Urdf 文件的内容加载到参数服务器 -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find basic_wip)/xacro/robot2.xacro" />
+    <!-- 启动 gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <!-- 在 gazebo 中显示机器人模型 -->
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model mywip2 -param robot_description"  />
+
+<!-- 以下部分是新加入的关于控制相关的内容 -->
+    <!-- 1 Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find basic_wip)/yaml/robot2.yaml" command="load"/>
+    <!-- 2 load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/robot_wip" args="
+        joint_state_controller 
+        Lwheel_effort_controller
+        Rwheel_effort_controller"
+        />
+
+
+    <!-- 启动自己写的控制节点 -->
+    <node pkg="basic_wip" type="wip_ctrl_node" name="wip_controller"  output="screen" respawn ="true">
+        <!-- <rosparam file="$(find basic_wip)/cfg/defaultpidpara.yaml" command="load"/> -->
+    </node> 
+
+</launch>

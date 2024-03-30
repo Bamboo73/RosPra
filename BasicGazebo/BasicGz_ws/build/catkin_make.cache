@@ -1,0 +1,2 @@
+basic_gz_pkg
+-DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicGazebo/BasicGz_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicGazebo/BasicGz_ws/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/install
+
+Name: Vertical_ver_mesh
+Description: Description of Vertical_ver_mesh
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,70 @@
+<robot name = "actuators" xmlns:xacro = "http://wiki.ros.org/xacro">
+    <xacro:macro name="transmission_macro" params = "joint_name">
+        <transmission name="${joint_name}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <!-- 在 Gazebo      当中用 ： EffortJointInterface -->
+                <!-- 在 RobotHW     当中用 ： hardware_interface/EffortJointInterface -->
+            </joint>
+
+            <actuator name="${joint_name}_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <!-- 在 Indigo 之前的版本，hardwareInterface只在此处定义（和我noetic什么关系x） -->
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+<!-- 左侧关节驱动器绑定 -->
+    <xacro:transmission_macro joint_name="left_thigh_joint" />
+    <xacro:transmission_macro joint_name="left_knee_joint" />
+    <xacro:transmission_macro joint_name="left_wheel_joint" />
+
+<!-- 右侧关节驱动器绑定 -->
+    <xacro:transmission_macro joint_name="right_thigh_joint" />
+    <xacro:transmission_macro joint_name="right_knee_joint" />
+    <xacro:transmission_macro joint_name="right_wheel_joint" />
+
+<!-- 下面这个robot的命名空间是有讲究的，需要和yaml配套绑定关节控制器，然后在launch文件中启动 -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/robot_wbr</robotNamespace>
+        </plugin>
+    </gazebo>
+
+</robot>
+
+
+<!-- 以下是用来参考的文档 -->
+<!-- 
+<robot name="actuators" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:macro name="joint_trans" params="joint_name">
+  
+
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+    </xacro:macro>
+
+    <xacro:joint_trans joint_name="leftw2base" />
+    <xacro:joint_trans joint_name="rightw2base" />
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/robot</robotNamespace>
+        </plugin>
+    </gazebo>
+
+
+</robot> -->

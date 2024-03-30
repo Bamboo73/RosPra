@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/ComTopic/ComTopic_ws/devel
+
+Name: turtlecmdpkg
+Description: Description of turtlecmdpkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

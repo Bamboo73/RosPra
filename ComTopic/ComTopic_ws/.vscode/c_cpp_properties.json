@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/bamboo70/MyDocs/WIP_Simu/wipws/src/gazebopkg/include/**",
+        "/home/bamboo70/MyDocs/WIP_Simu/wipws/src/linkpkg/include/**",
+        "/home/bamboo70/MyDocs/WIP_Simu/wipws/src/tf2demopkg/include/**",
+        "/home/bamboo70/MyDocs/WIP_Simu/wipws/src/topicpkg/include/**",
+        "/home/bamboo70/MyDocs/WIP_Simu/wipws/src/urdfdemopkg/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

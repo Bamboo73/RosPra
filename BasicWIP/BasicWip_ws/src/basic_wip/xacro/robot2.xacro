@@ -1,0 +1,12 @@
+<!-- robotx.xacro 用于引用所有将要用到的文件 -->
+<!-- 本文件中的robot包含传感器和控制器 -->
+<!-- robot2.xacro 使用robot2.launch启动 -->
+<robot name="robot_wip" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="inertial.xacro" />
+    <xacro:include filename="wip.xacro" />
+    <!-- 在定义了wip.xacro 当中的连杆和关节之后，才能绑定对应的控制器和传感器 -->
+    <xacro:include filename="actuators.xacro" />
+    <xacro:include filename="sensors.xacro" />
+</robot>
+
+

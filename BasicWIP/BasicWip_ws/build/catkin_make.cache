@@ -1,0 +1,2 @@
+basic_wip
+-DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWIP/BasicWip_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWIP/BasicWip_ws/install -G Unix Makefiles

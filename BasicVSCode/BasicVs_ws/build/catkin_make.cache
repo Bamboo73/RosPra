@@ -1,0 +1,2 @@
+basic_vs_pkg
+-DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicVSCode/BasicVs_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicVSCode/BasicVs_ws/install -G Unix Makefiles

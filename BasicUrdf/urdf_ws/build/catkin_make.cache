@@ -1,0 +1,2 @@
+basic_urdf_pkg:basic_xacro_pkg
+-DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/install -G Unix Makefiles

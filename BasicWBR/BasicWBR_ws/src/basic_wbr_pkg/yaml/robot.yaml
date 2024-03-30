@@ -1,0 +1,33 @@
+robot_wbr:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  Lw_ctrl:
+    type: effort_controllers/JointEffortController
+    joint: left_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Rw_ctrl:
+    type: effort_controllers/JointEffortController
+    joint: right_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  Lk_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: left_knee_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Rk_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: right_knee_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Lh_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: left_thigh_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Rh_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: right_thigh_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+

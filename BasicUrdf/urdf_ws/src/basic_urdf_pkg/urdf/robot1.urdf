@@ -1,0 +1,10 @@
+<!-- 最简单的内容，生成一个方块，然后用robot1.launch中启动的rviz显示 -->
+<robot name="mycar">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.5 0.2 0.1" />
+            </geometry>
+        </visual>
+    </link>
+</robot>

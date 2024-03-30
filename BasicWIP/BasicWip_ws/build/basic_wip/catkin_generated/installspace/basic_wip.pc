@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWIP/BasicWip_ws/install
+
+Name: basic_wip
+Description: Description of basic_wip
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

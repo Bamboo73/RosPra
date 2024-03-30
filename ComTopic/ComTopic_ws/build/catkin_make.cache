@@ -1,0 +1,2 @@
+topiccompkg:turtlecmdpkg
+-DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/ComTopic/ComTopic_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/ComTopic/ComTopic_ws/install -G Unix Makefiles

@@ -1,0 +1,12 @@
+<launch>
+    <!-- <param name="robot_description" textfile="$(find basic_wbr_pkg)/xacro/robot.xacro" /> -->
+ <param name="robot_description" command="$(find xacro)/xacro $(find basic_wip)/xacro/robot1.xacro" />
+    
+    <node pkg="rviz" type="rviz" name="rviz"/>  
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+    </node>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    
+    
+</launch>

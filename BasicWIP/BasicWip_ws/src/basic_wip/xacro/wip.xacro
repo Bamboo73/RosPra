@@ -1,0 +1,168 @@
+<robot name="wip" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:property name = "p1" value = "1"/>
+    <!-- 没什么用，只是ZZW非得自己手动敲一次，满足他的愿望。 -->
+    <xacro:property name = "pi" value ="3.1415927" />
+    <!-- params for base -->
+    <xacro:property name = "base_l" value ="0.15" />
+    <xacro:property name = "base_w" value ="0.05" />
+    <xacro:property name = "base_h" value ="0.2" />
+    <xacro:property name = "base_m" value ="0.8" />
+
+    <xacro:property name = "wheel_l" value ="0.04" />
+    <xacro:property name = "wheel_r" value ="0.05" />
+    <xacro:property name = "wheel_m" value ="0.2" />
+    <xacro:property name = "imu_m" value = "0.005" />
+
+    <xacro:property name = "imu_x" value = "0.02" />
+    <xacro:property name = "imu_y" value = "0.01" />
+    <xacro:property name = "imu_z" value = "0.005" />
+
+<!-- link1 footprint -->
+<!-- 用途就是载入模型的时候将这个设定为远点位置 -->
+<!-- 不过实际上在launch当中使用 spwan model时，将参数 -z 调成一个适当的值也可以，自由落体一小会儿不影响 -->
+    <link name="base_footprint">
+        <visual>
+            <geometry>
+                <sphere radius="0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+<!-- link2 basement -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="${base_w} ${base_l} ${base_h}" />
+            </geometry>
+            <!-- <origin xyz="0 0 0.225" rpy="0 0 0" /> -->
+            <material name="black">
+                <color rgba="0.7 0.5 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${base_w} ${base_l} ${base_h}" />
+            </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <xacro:Box_inertial_matrix m="${base_m}" l="${base_w}" w="${base_l}" h="${base_h}" />
+    </link>
+
+<!-- 左轮 -->
+    <link name = "leftwheel">
+        <visual>
+            <geometry>
+                <cylinder radius="${wheel_r}" length="${wheel_l}" />
+            </geometry>
+            <material name="red">
+                <color rgba="0.7 0.0 0 1" />
+            </material>
+            <origin xyz="0.0 0.0 0.0" rpy="${pi/2} 0.0 0.0" />
+            <!-- <origin xyz="0 0.105 0.05" rpy="-3.1415926 0 0" /> -->
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder radius="${wheel_r}" length="${wheel_l}" />
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="${pi/2} 0.0 0.0" />
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${wheel_m}" r="${wheel_r}" h="${wheel_l}" />
+    </link>
+
+<!-- Right Wheel -->
+    <link name = "rightwheel">
+        <visual>
+            <geometry>
+                <cylinder radius="${wheel_r}" length="${wheel_l}" />
+            </geometry>
+            <material name="red">
+                <color rgba="0.7 0.0 0 1" />
+            </material>
+            <origin xyz="0.0 0.0 0.0" rpy="${pi/2} 0.0 0.0" />
+            <!-- <origin xyz="0 0.105 0.05" rpy="-3.1415926 0 0" /> -->
+        </visual>
+
+        <collision>
+          <geometry>
+            <cylinder radius="${wheel_r}" length="${wheel_l}" />
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="${pi/2} 0.0 0.0" />
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${wheel_m}" r="${wheel_r}" h="${wheel_l}" />
+
+    </link>
+
+<!-- Imu Model -->
+    <link name="imu_link">
+        <visual>
+            <geometry>
+                <box size="${imu_x} ${imu_y} ${imu_z}" />
+            </geometry>
+            <origin xyz="${imu_x/2} 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <material name="blue">   <!-- In Gazebo , gazebo plugin will work, not this-->
+                <color rgba="0.0 0.0 0.9 1" />
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${imu_x} ${imu_y} ${imu_z}" />
+            </geometry>
+            <origin xyz="${imu_x/2} 0.0 0.0" rpy="0.0 0.0 0.0" />
+        </collision>
+        <xacro:Box_inertial_matrix m="${imu_m}" l="${imu_x}" w="${imu_y}" h="${imu_z}" />
+    </link>
+
+
+
+<!-- Joints -->
+
+<!-- Joint0 -->
+    <joint name="base_link2base_footprint" type="fixed">
+        <parent link="base_footprint" />
+        <child link="base_link" />
+        <origin xyz="0 0.0 0.125" />
+    </joint>
+
+    <joint name="Imu2Base_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="imu_link" />
+        <origin xyz="0 0 ${base_h/2 + imu_z/2 }" />
+    </joint>
+
+    <joint name="leftw2base" type="continuous">
+        <parent link="base_link"/>
+        <child link="leftwheel" />
+      
+        <origin xyz="0 0.105 -0.075 " />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="rightw2base" type="continuous">
+        <parent link="base_link"/>
+        <child link="rightwheel" />
+     
+        <origin xyz="0 -0.105 -0.075 " />
+        <axis xyz="0 1 0 " />
+    </joint>
+
+    <gazebo reference="base_footprint">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+    <gazebo reference="leftwheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="rightwheel">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+    <gazebo reference="imu_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    
+</robot>

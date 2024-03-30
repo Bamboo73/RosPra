@@ -1,0 +1,38 @@
+<launch>
+
+  <!-- <param name="robot_description" textfile="$(find basic_wbr_pkg)/xacro/robot.xacro" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find basic_wbr_pkg)/xacro/robot.xacro" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <node
+    name="model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-urdf -model robot -param robot_description -z 1"
+    output="screen" />
+
+
+<!-- 以下部分是新加入的关于控制相关的内容 -->
+  <!-- 1 Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find basic_wbr_pkg)/yaml/robot.yaml" command="load"/>
+  <!-- 2 load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/robot_wbr" args="
+      Lw_ctrl 
+      Rw_ctrl
+      Lk_ctrl 
+      Rk_ctrl
+      Lh_ctrl 
+      Rh_ctrl
+      "
+      />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <!-- <remap from="/joint_states" to="/robot_wbr/joint_states" /> -->
+  </node>
+    <!-- 启动自己写的控制节点 --> 
+
+  <node pkg="basic_wbr_pkg" type="wbr_ctrl_node" name="wbr_controller"  output="screen" respawn ="true">
+    <!-- <rosparam file="$(find basic_wip)/cfg/defaultpidpara.yaml" command="load"/> -->
+  </node> 
+
+</launch>

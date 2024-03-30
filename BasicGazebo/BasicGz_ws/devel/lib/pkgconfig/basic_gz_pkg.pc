@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicGazebo/BasicGz_ws/devel
+
+Name: basic_gz_pkg
+Description: Description of basic_gz_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- 设置参数 -->
+    <param name="robot_description" textfile="$(find basic_urdf_pkg)/urdf/robot1.urdf" />
+    <!-- 这个param 标签的作用之后需要细研究一下感觉 -->
+
+    <!-- 启动 rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find basic_urdf_pkg)/config/rviz_cfg1.rviz"/>
+    <!-- 这句可判断，rviz是一个pkg中的node -->
+
+</launch>

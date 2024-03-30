@@ -1,0 +1,15 @@
+<!-- robotx.xacro 用于引用所有将要用到的文件 -->
+<!-- 本文件中的robot1仅包含模型，不含传感器和控制器 -->
+<!-- robot1.xacro 使用robot1.launch启动 -->
+<robot name="robot_wbr" xmlns:xacro="http://wiki.ros.org/xacro">
+    <!-- <xacro:include filename="inertial.xacro" /> -->
+    <!-- <xacro:include filename="wip.xacro" /> -->
+
+
+    <xacro:include filename="wbr_model_v.xacro" />
+    <xacro:include filename="actuators.xacro" /> 
+    <xacro:include filename="sensors.xacro" />
+
+</robot>
+
+

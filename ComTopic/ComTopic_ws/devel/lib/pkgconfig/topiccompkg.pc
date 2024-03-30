@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/ComTopic/ComTopic_ws/devel
+
+Name: topiccompkg
+Description: Description of topiccompkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
