@@ -1,2 +1,2 @@
-Kneel_ver_mesh:Vertical_ver_mesh:basic_link_pkg:basic_wbr_pkg
+Kneel_ver_mesh:Vertical_ver_mesh:basic_link_pkg:basic_wbr_pkg:wbrtestpkg
 -DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/install -G Unix Makefiles

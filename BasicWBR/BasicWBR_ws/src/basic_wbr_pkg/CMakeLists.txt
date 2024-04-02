@@ -141,7 +141,11 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/basic_wbr_pkg_node.cpp)
 
-add_executable(wbr_ctrl_node src/wbr_controller.cpp)
+
+
+# 已经注释掉了
+
+# add_executable(wbr_ctrl_node src/wbr_controller.cpp)
 
 
 ## Rename C++ executable without prefix
@@ -159,9 +163,12 @@ add_executable(wbr_ctrl_node src/wbr_controller.cpp)
 #   ${catkin_LIBRARIES}
 # )
 
-target_link_libraries(wbr_ctrl_node
-  ${catkin_LIBRARIES}
-)
+
+# 已经注释掉了
+
+# target_link_libraries(wbr_ctrl_node
+#   ${catkin_LIBRARIES}
+# )
 
 
 

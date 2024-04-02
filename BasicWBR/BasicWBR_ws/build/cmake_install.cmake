@@ -135,6 +135,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/Vertical_ver_mesh/cmake_install.cmake")
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/basic_link_pkg/cmake_install.cmake")
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/basic_wbr_pkg/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/wbrtestpkg/cmake_install.cmake")
 
 endif()
 

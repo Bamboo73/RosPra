@@ -1663,19 +1663,6 @@ nav_msgs_generate_messages_eus/fast:
 .PHONY : nav_msgs_generate_messages_eus/fast
 
 #=============================================================================
-# Target rules for targets named wbr_ctrl_node
-
-# Build rule for target.
-wbr_ctrl_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 wbr_ctrl_node
-.PHONY : wbr_ctrl_node
-
-# fast build rule for target.
-wbr_ctrl_node/fast:
-	$(MAKE) -f basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build.make basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build
-.PHONY : wbr_ctrl_node/fast
-
-#=============================================================================
 # Target rules for targets named basic_wbr_pkg_xacro_generated_to_devel_space_
 
 # Build rule for target.
@@ -1687,6 +1674,32 @@ basic_wbr_pkg_xacro_generated_to_devel_space_: cmake_check_build_system
 basic_wbr_pkg_xacro_generated_to_devel_space_/fast:
 	$(MAKE) -f basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/build.make basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/build
 .PHONY : basic_wbr_pkg_xacro_generated_to_devel_space_/fast
+
+#=============================================================================
+# Target rules for targets named dpd_ctrl_node
+
+# Build rule for target.
+dpd_ctrl_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 dpd_ctrl_node
+.PHONY : dpd_ctrl_node
+
+# fast build rule for target.
+dpd_ctrl_node/fast:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/build.make wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/build
+.PHONY : dpd_ctrl_node/fast
+
+#=============================================================================
+# Target rules for targets named wbrtestpkg_xacro_generated_to_devel_space_
+
+# Build rule for target.
+wbrtestpkg_xacro_generated_to_devel_space_: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg_xacro_generated_to_devel_space_
+.PHONY : wbrtestpkg_xacro_generated_to_devel_space_
+
+# fast build rule for target.
+wbrtestpkg_xacro_generated_to_devel_space_/fast:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/build
+.PHONY : wbrtestpkg_xacro_generated_to_devel_space_/fast
 
 # Help Target
 help:
@@ -1816,8 +1829,9 @@ help:
 	@echo "... nodelet_generate_messages_py"
 	@echo "... bond_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_eus"
-	@echo "... wbr_ctrl_node"
 	@echo "... basic_wbr_pkg_xacro_generated_to_devel_space_"
+	@echo "... dpd_ctrl_node"
+	@echo "... wbrtestpkg_xacro_generated_to_devel_space_"
 .PHONY : help
 
 

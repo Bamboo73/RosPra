@@ -168,21 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/rule:
-	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f CMakeFiles/Makefile2 basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/rule
-.PHONY : basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/rule
-
-# Convenience name for target.
-wbr_ctrl_node: basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/rule
-
-.PHONY : wbr_ctrl_node
-
-# fast build rule for target.
-wbr_ctrl_node/fast:
-	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build.make basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build
-.PHONY : wbr_ctrl_node/fast
-
-# Convenience name for target.
 basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/rule:
 	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f CMakeFiles/Makefile2 basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/rule
 .PHONY : basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/rule
@@ -197,33 +182,6 @@ basic_wbr_pkg_xacro_generated_to_devel_space_/fast:
 	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/build.make basic_wbr_pkg/CMakeFiles/basic_wbr_pkg_xacro_generated_to_devel_space_.dir/build
 .PHONY : basic_wbr_pkg_xacro_generated_to_devel_space_/fast
 
-src/wbr_controller.o: src/wbr_controller.cpp.o
-
-.PHONY : src/wbr_controller.o
-
-# target to build an object file
-src/wbr_controller.cpp.o:
-	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build.make basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/src/wbr_controller.cpp.o
-.PHONY : src/wbr_controller.cpp.o
-
-src/wbr_controller.i: src/wbr_controller.cpp.i
-
-.PHONY : src/wbr_controller.i
-
-# target to preprocess a source file
-src/wbr_controller.cpp.i:
-	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build.make basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/src/wbr_controller.cpp.i
-.PHONY : src/wbr_controller.cpp.i
-
-src/wbr_controller.s: src/wbr_controller.cpp.s
-
-.PHONY : src/wbr_controller.s
-
-# target to generate assembly for a file
-src/wbr_controller.cpp.s:
-	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/build.make basic_wbr_pkg/CMakeFiles/wbr_ctrl_node.dir/src/wbr_controller.cpp.s
-.PHONY : src/wbr_controller.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,11 +195,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... wbr_ctrl_node"
 	@echo "... basic_wbr_pkg_xacro_generated_to_devel_space_"
-	@echo "... src/wbr_controller.o"
-	@echo "... src/wbr_controller.i"
-	@echo "... src/wbr_controller.s"
 .PHONY : help
 
 
