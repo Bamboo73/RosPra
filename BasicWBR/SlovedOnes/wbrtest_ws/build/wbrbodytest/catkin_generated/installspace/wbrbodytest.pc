@@ -1,0 +1,8 @@
+prefix=/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/install
+
+Name: wbrbodytest
+Description: Description of wbrbodytest
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

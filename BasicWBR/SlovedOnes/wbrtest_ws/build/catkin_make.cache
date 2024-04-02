@@ -1,0 +1,2 @@
+wbrbodytest:wbrtestpkg
+-DCATKIN_DEVEL_PREFIX=/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/install -G Unix Makefiles

@@ -1,0 +1,53 @@
+<launch>
+    <arg name="wbr_model" />
+
+    <!-- 将机器人模型加载到参数服务器当中 -->
+    <param 
+    name="robot_description" 
+    command="$(find xacro)/xacro $(find wbrtestpkg)/xacro/robot_wbr.xacro" />
+
+
+
+    <!-- 以下部分是新加入的关于控制相关的内容 -->
+    <!-- 1 Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find wbrtestpkg)/yaml/controllers.yaml" command="load"/>
+    <!-- 2 load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/robot_wbr" args="
+        joint_state_controller 
+        right_wheel_ctrl
+        left_wheel_ctrl
+        right_knee_ctrl
+        right_hip_ctrl
+        left_knee_ctrl
+        left_hip_ctrl
+        "
+        />
+
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+
+    <!-- 启动 gazebo ，打开一个空世界（之后可以放一些障碍物我猜）-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+    <!-- 在 gazebo 中显示机器人模型 -->
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="
+    -urdf -z 0.51
+    -model my_wbr 
+    -param robot_description"/>
+
+
+  <node pkg = "wbrtestpkg" type = "dpd_ctrl_node" name = "dpd_ctrl_node" output="screen"/>
+
+
+
+</launch>
+
+

@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg = "wbrtestpkg" type = "dpd_ctrl_node" name = "dpd_ctrl_node" output="screen"/>
+
+</launch>
+
+
