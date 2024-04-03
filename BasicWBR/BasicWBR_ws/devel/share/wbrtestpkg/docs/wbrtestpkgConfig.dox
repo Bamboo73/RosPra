@@ -1,0 +1,16 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~int_param" : \b [int] int pa min: 0, default: 50, max: 100
+- \b "~double_param" : \b [double] float pa min: 0.0, default: 1.57, max: 3.14
+- \b "~pos_kp" : \b [double] pos_kp min: 0.0, default: 0.0, max: 100.0
+- \b "~pos_ki" : \b [double] pos_kp min: 0.0, default: 0.0, max: 100.0
+- \b "~pos_kd" : \b [double] pos_kp min: 0.0, default: 0.0, max: 100.0
+- \b "~vel_kp" : \b [double] vel_kp min: 0.0, default: 0.0, max: 100.0
+- \b "~vel_ki" : \b [double] vel_ki min: 0.0, default: 0.0, max: 100.0
+- \b "~vel_kd" : \b [double] vel_kd min: 0.0, default: 0.0, max: 100.0
+- \b "~yaw_kp" : \b [double] yaw_kp min: 0.0, default: 0.0, max: 100.0
+- \b "~yaw_ki" : \b [double] yaw_ki min: 0.0, default: 0.0, max: 100.0
+- \b "~yaw_kd" : \b [double] yaw_kd min: 0.0, default: 0.0, max: 100.0
+

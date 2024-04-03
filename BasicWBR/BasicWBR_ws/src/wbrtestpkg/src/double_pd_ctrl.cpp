@@ -26,6 +26,16 @@
 #include "sensor_msgs/Imu.h"
 
 
+//动态调参
+#include "dynamic_reconfigure/server.h"
+
+#include "wbrtestpkg/wbrtestpkgConfig.h"
+
+// #include "wbrtestpkg/drConfig.h"
+// #include 
+
+
+
 
 //定义一个机器人Class ，包含关于运动当中的各种所需属性。
 class Robot_Class{
@@ -207,6 +217,29 @@ Robot_Class Myrobot;
 *   结束对机器人类和对象的实现----------------------------------------------------------------------
 */
 
+
+/*
+*   下面开始的是一系列回调函数
+*/
+
+//动态调参参数服务器。
+void DynamicPara(wbrtestpkg::wbrtestpkgConfig& config, uint32_t level){
+    // ROS_INFO("dynamic paras :%d,%.2f,%d,%s,%d",
+    //     config.int_param,
+    //     config.double_param,
+    //     config.bool_param,
+    //     config.string_param.c_str(),
+    //     config.list_param
+    // );
+    Myrobot.balance_pid_kd = config.pos_kd;
+    Myrobot.balance_pid_kp = config.pos_kp;
+    Myrobot.balance_pid_ki = config.pos_ki;
+
+    Myrobot.vel_pid_kp = config.vel_kp;
+    Myrobot.vel_pid_ki = config.vel_ki;
+    Myrobot.vel_pid_kd = config.vel_kd;
+    
+}
 void doImuMsg(const  sensor_msgs::Imu::ConstPtr & msg_p){  // 传感器的回调函数
     //ROS_INFO("Imu Signal Received.");
     float w,x,y,z;
@@ -247,9 +280,16 @@ int main(int argc, char * argv[])
 
     Myrobot.InitRobot(); // 初始化机器人对象
 
+
+    //这里是关于动态调参的内容
+    dynamic_reconfigure::Server<wbrtestpkg::wbrtestpkgConfig> server;
+    dynamic_reconfigure::Server<wbrtestpkg::wbrtestpkgConfig>::CallbackType cbType;
+    cbType = boost::bind(&DynamicPara,_1,_2);
+    // 5.服务器对象调用回调对象
+    server.setCallback(cbType);
+
+
     ros::Subscriber HeightCmdSub = nt.subscribe<std_msgs::Float64>("wbr_height_cmd",10,doMsg_height);
-
-
     // 控制器相关，话题发布
     // 左右腿的位置控制
     ros::Publisher LeftHipCmdPub = nt.advertise<std_msgs::Float64>("/robot_wbr/left_hip_ctrl/command",10);
@@ -311,7 +351,7 @@ int main(int argc, char * argv[])
 
         //设置一些初始化的参数：
         //平衡PID参数初始状态：
-        Myrobot.SetRobotBalancePidParams(0.01,0,0); // 初始化一下PID参数
+        Myrobot.SetRobotBalancePidParams(0.01,0,0); // 初始化一下PID参数[开启动态调参后这句话就没用了]
     }
 
     // 主循环
@@ -356,8 +396,8 @@ int main(int argc, char * argv[])
             //在wbrtestpkg这个包里面，下面这句话已经没用了，因为xacro文件我检查过，左右关节是对的。
             //Myrobot.SetRobotBalanceCmd(-Myrobot.balance_calculated_effort,-Myrobot.balance_calculated_effort);
             
-            //BalanceCmdMsg.data = -static_cast<double>(Myrobot.balance_calculated_effort);
-            BalanceCmdMsg.data = 0.0;
+            BalanceCmdMsg.data = - static_cast<double>(Myrobot.balance_calculated_effort);
+            //BalanceCmdMsg.data = 0.0;
 
             LeftWheelCmdPub.publish(BalanceCmdMsg);
             RightWheelCmdPub.publish(BalanceCmdMsg);

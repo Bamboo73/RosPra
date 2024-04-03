@@ -38,6 +38,22 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/wbrtestpkg" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel/include/wbrtestpkg/dyparaConfig.h")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/wbrtestpkg" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel/lib/python3/dist-packages/wbrtestpkg/__init__.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel/lib/python3/dist-packages/wbrtestpkg/cfg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/wbrtestpkg" TYPE DIRECTORY FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel/lib/python3/dist-packages/wbrtestpkg/cfg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/wbrtestpkg/catkin_generated/installspace/wbrtestpkg.pc")
 endif()
 

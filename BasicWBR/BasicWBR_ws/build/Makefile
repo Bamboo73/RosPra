@@ -1689,6 +1689,19 @@ dpd_ctrl_node/fast:
 .PHONY : dpd_ctrl_node/fast
 
 #=============================================================================
+# Target rules for targets named wbrtestpkg_gencfg
+
+# Build rule for target.
+wbrtestpkg_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg_gencfg
+.PHONY : wbrtestpkg_gencfg
+
+# fast build rule for target.
+wbrtestpkg_gencfg/fast:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build
+.PHONY : wbrtestpkg_gencfg/fast
+
+#=============================================================================
 # Target rules for targets named wbrtestpkg_xacro_generated_to_devel_space_
 
 # Build rule for target.
@@ -1831,6 +1844,7 @@ help:
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... basic_wbr_pkg_xacro_generated_to_devel_space_"
 	@echo "... dpd_ctrl_node"
+	@echo "... wbrtestpkg_gencfg"
 	@echo "... wbrtestpkg_xacro_generated_to_devel_space_"
 .PHONY : help
 

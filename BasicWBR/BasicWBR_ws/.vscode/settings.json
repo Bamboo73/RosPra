@@ -6,5 +6,40 @@
     "python.analysis.extraPaths": [
         "/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/lib/python3/dist-packages",
         "/opt/ros/noetic/lib/python3/dist-packages"
-    ]
+    ],
+    "C_Cpp.default.includePath": [
+        "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel/include/wbrtestpkg/drConfig.h"
+    ],
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/usr/include/**",
+                "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/devel/include/wbrtestpkg/drConfig.h" //配置 head 文件的路径 
+                
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
 }
+
+
+// {
+//     "python.autoComplete.extraPaths": [
+//         "/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/lib/python3/dist-packages",
+//         "/opt/ros/noetic/lib/python3/dist-packages"
+//     ],
+//     "python.analysis.extraPaths": [
+//         "/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/lib/python3/dist-packages",
+//         "/opt/ros/noetic/lib/python3/dist-packages"
+//     ]
+// }

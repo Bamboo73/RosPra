@@ -325,6 +325,7 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 
 # Recursive "all" directory target.
 wbrtestpkg/all: wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/all
+wbrtestpkg/all: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all
 wbrtestpkg/all: wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/all
 
 .PHONY : wbrtestpkg/all
@@ -336,6 +337,7 @@ wbrtestpkg/preinstall:
 
 # Recursive "clean" directory target.
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/clean
+wbrtestpkg/clean: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/clean
 
 .PHONY : wbrtestpkg/clean
@@ -3499,6 +3501,33 @@ dpd_ctrl_node: wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/rule
 wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/clean:
 	$(MAKE) -f wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/build.make wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/clean
 .PHONY : wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/clean
+
+#=============================================================================
+# Target rules for target wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir
+
+# All Build rule for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/depend
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/CMakeFiles --progress-num=11 "Built target wbrtestpkg_gencfg"
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all
+
+# Build rule for subdir invocation for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build/CMakeFiles 0
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+# Convenience name for target.
+wbrtestpkg_gencfg: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+.PHONY : wbrtestpkg_gencfg
+
+# clean rule for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean
 
 #=============================================================================
 # Target rules for target wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir

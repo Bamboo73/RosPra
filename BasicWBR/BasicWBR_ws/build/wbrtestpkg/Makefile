@@ -183,6 +183,21 @@ dpd_ctrl_node/fast:
 .PHONY : dpd_ctrl_node/fast
 
 # Convenience name for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule:
+	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+# Convenience name for target.
+wbrtestpkg_gencfg: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+.PHONY : wbrtestpkg_gencfg
+
+# fast build rule for target.
+wbrtestpkg_gencfg/fast:
+	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build
+.PHONY : wbrtestpkg_gencfg/fast
+
+# Convenience name for target.
 wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/rule:
 	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicWBR/BasicWBR_ws/build && $(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/rule
 .PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/rule
@@ -237,6 +252,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... dpd_ctrl_node"
+	@echo "... wbrtestpkg_gencfg"
 	@echo "... install/strip"
 	@echo "... wbrtestpkg_xacro_generated_to_devel_space_"
 	@echo "... src/double_pd_ctrl.o"

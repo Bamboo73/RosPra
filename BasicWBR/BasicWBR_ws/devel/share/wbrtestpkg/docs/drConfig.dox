@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~int_param" : \b [int] int pa min: 0, default: 50, max: 100
+- \b "~double_param" : \b [double] float pa min: 0.0, default: 1.57, max: 3.14
+- \b "~string_param" : \b [str] str pa min: , default: hello world , max: 
+- \b "~bool_param" : \b [bool] bool pa  min: False, default: True, max: True
+- \b "~list_param" : \b [int] zz list min: 0, default: 0, max: 2
+
