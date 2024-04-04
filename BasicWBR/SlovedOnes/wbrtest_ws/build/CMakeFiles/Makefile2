@@ -159,6 +159,7 @@ wbrbodytest/clean: wbrbodytest/CMakeFiles/_catkin_empty_exported_target.dir/clea
 # Recursive "all" directory target.
 wbrtestpkg/all: wbrtestpkg/CMakeFiles/wbrtestpkg_xacro_generated_to_devel_space_.dir/all
 wbrtestpkg/all: wbrtestpkg/CMakeFiles/dpd_ctrl_node.dir/all
+wbrtestpkg/all: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all
 
 .PHONY : wbrtestpkg/all
 
@@ -184,6 +185,7 @@ wbrtestpkg/clean: wbrtestpkg/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clea
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/actionlib_generate_messages_py.dir/clean
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/actionlib_generate_messages_lisp.dir/clean
+wbrtestpkg/clean: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/tf_generate_messages_nodejs.dir/clean
 wbrtestpkg/clean: wbrtestpkg/CMakeFiles/control_msgs_generate_messages_eus.dir/clean
@@ -979,6 +981,33 @@ actionlib_generate_messages_lisp: wbrtestpkg/CMakeFiles/actionlib_generate_messa
 wbrtestpkg/CMakeFiles/actionlib_generate_messages_lisp.dir/clean:
 	$(MAKE) -f wbrtestpkg/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make wbrtestpkg/CMakeFiles/actionlib_generate_messages_lisp.dir/clean
 .PHONY : wbrtestpkg/CMakeFiles/actionlib_generate_messages_lisp.dir/clean
+
+#=============================================================================
+# Target rules for target wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir
+
+# All Build rule for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/depend
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build/CMakeFiles --progress-num=11 "Built target wbrtestpkg_gencfg"
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all
+
+# Build rule for subdir invocation for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build/CMakeFiles 0
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+# Convenience name for target.
+wbrtestpkg_gencfg: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+.PHONY : wbrtestpkg_gencfg
+
+# clean rule for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/clean
 
 #=============================================================================
 # Target rules for target wbrtestpkg/CMakeFiles/actionlib_generate_messages_cpp.dir

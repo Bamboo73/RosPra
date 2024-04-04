@@ -3,6 +3,6 @@ prefix=/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel
 Name: wbrtestpkg
 Description: Description of wbrtestpkg
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: 

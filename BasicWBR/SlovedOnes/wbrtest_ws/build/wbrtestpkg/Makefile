@@ -408,6 +408,21 @@ actionlib_generate_messages_lisp/fast:
 .PHONY : actionlib_generate_messages_lisp/fast
 
 # Convenience name for target.
+wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule:
+	cd /home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build && $(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+.PHONY : wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+# Convenience name for target.
+wbrtestpkg_gencfg: wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/rule
+
+.PHONY : wbrtestpkg_gencfg
+
+# fast build rule for target.
+wbrtestpkg_gencfg/fast:
+	cd /home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build && $(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build
+.PHONY : wbrtestpkg_gencfg/fast
+
+# Convenience name for target.
 wbrtestpkg/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
 	cd /home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build && $(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
 .PHONY : wbrtestpkg/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
@@ -1811,6 +1826,7 @@ help:
 	@echo "... actionlib_generate_messages_py"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_lisp"
+	@echo "... wbrtestpkg_gencfg"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
 	@echo "... control_msgs_generate_messages_eus"

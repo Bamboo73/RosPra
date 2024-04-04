@@ -11,5 +11,6 @@ export CMAKE_PREFIX_PATH="/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/d
 export LD_LIBRARY_PATH="/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/build'
+export PYTHONPATH="/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES='/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/share/common-lisp'
 export ROS_PACKAGE_PATH="/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/src:$ROS_PACKAGE_PATH"

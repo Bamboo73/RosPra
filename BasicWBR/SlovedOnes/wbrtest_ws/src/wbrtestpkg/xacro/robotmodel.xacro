@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="wbrbodytest"  xmlns:xacro="http://wiki.ros.org/xacro">
+  name="wbrtestpkg"  xmlns:xacro="http://wiki.ros.org/xacro">
 
   <link
     name="base_link">
@@ -27,7 +27,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/base_link.STL" />
+          filename="package://wbrtestpkg/meshes/base_link.STL" />
       </geometry>
       <material
         name="mt1">
@@ -41,7 +41,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/base_link.STL" />
+          filename="package://wbrtestpkg/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -70,7 +70,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/left_thigh.STL" />
+          filename="package://wbrtestpkg/meshes/left_thigh.STL" />
       </geometry>
       <material
         name="mt1">
@@ -84,7 +84,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/left_thigh.STL" />
+          filename="package://wbrtestpkg/meshes/left_thigh.STL" />
       </geometry>
     </collision>
   </link>
@@ -135,7 +135,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/left_shank.STL" />
+          filename="package://wbrtestpkg/meshes/left_shank.STL" />
       </geometry>
       <material
         name="mt1">
@@ -149,7 +149,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/left_shank.STL" />
+          filename="package://wbrtestpkg/meshes/left_shank.STL" />
       </geometry>
     </collision>
   </link>
@@ -197,7 +197,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/left_wheel.STL" />
+          filename="package://wbrtestpkg/meshes/left_wheel.STL" />
       </geometry>
       <material
         name="mt1">
@@ -211,7 +211,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/left_wheel.STL" />
+          filename="package://wbrtestpkg/meshes/left_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -257,7 +257,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/right_thigh.STL" />
+          filename="package://wbrtestpkg/meshes/right_thigh.STL" />
       </geometry>
       <material
         name="mt1">
@@ -271,7 +271,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/right_thigh.STL" />
+          filename="package://wbrtestpkg/meshes/right_thigh.STL" />
       </geometry>
     </collision>
   </link>
@@ -318,7 +318,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/right_shank.STL" />
+          filename="package://wbrtestpkg/meshes/right_shank.STL" />
       </geometry>
       <material
         name="mt1">
@@ -332,7 +332,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/right_shank.STL" />
+          filename="package://wbrtestpkg/meshes/right_shank.STL" />
       </geometry>
     </collision>
   </link>
@@ -380,7 +380,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/right_wheel.STL" />
+          filename="package://wbrtestpkg/meshes/right_wheel.STL" />
       </geometry>
       <material
         name="mt1">
@@ -394,7 +394,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://wbrbodytest/meshes/right_wheel.STL" />
+          filename="package://wbrtestpkg/meshes/right_wheel.STL" />
       </geometry>
     </collision>
   </link>

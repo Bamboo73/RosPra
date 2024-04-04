@@ -506,6 +506,19 @@ actionlib_generate_messages_lisp/fast:
 .PHONY : actionlib_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named wbrtestpkg_gencfg
+
+# Build rule for target.
+wbrtestpkg_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 wbrtestpkg_gencfg
+.PHONY : wbrtestpkg_gencfg
+
+# fast build rule for target.
+wbrtestpkg_gencfg/fast:
+	$(MAKE) -f wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build.make wbrtestpkg/CMakeFiles/wbrtestpkg_gencfg.dir/build
+.PHONY : wbrtestpkg_gencfg/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_generate_messages_cpp
 
 # Build rule for target.
@@ -1714,6 +1727,7 @@ help:
 	@echo "... actionlib_generate_messages_py"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_lisp"
+	@echo "... wbrtestpkg_gencfg"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
 	@echo "... control_msgs_generate_messages_eus"

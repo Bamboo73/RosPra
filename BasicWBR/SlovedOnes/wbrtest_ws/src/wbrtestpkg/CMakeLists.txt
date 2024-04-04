@@ -99,6 +99,12 @@ find_package(catkin REQUIRED COMPONENTS
 #   cfg/DynReconf2.cfg
 # )
 
+
+generate_dynamic_reconfigure_options(
+  cfg/dypara.cfg
+)
+
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -166,6 +172,7 @@ target_link_libraries(dpd_ctrl_node
 
 
 
+
 #############
 ## Install ##
 #############
@@ -220,3 +227,5 @@ target_link_libraries(dpd_ctrl_node
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+

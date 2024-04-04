@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(wbrtestpkg_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/include " STREQUAL " ")
   set(wbrtestpkg_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/bamboo/Documents/MyRosDocs/TestDocs/wbrtest_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(wbrtestpkg_EXPORTED_TARGETS "")
+set(wbrtestpkg_EXPORTED_TARGETS "wbrtestpkg_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${wbrtestpkg_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
