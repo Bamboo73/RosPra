@@ -7,6 +7,7 @@
 subdirs("gtest")
 subdirs("Kneel_ver_mesh")
 subdirs("Vertical_ver_mesh")
+subdirs("wbrbodytest")
 subdirs("basic_link_pkg")
 subdirs("basic_wbr_pkg")
 subdirs("wbrtestpkg")

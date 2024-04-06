@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- robotmodel2 文件，旨在仔细地审查惯量信息... ...  -->
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="wbrtestpkg"  xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="8.1339" />
+      <inertia
+        ixx="0.068371"
+        ixy="0"
+        ixz="0"
+        iyy="0.013502"
+        iyz="0"
+        izz="0.068371" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <link
+    name="left_thigh">
+    <inertial>
+      <origin 
+      
+        xyz="0.15 0 -0.005"
+        rpy="0 0 0" />
+      
+      <!-- 根据上面的origin，似乎inertia是定义在质心位置上的... ... -->
+      <mass
+        value="0.43749" />
+      <inertia
+        ixx="0.00010"
+        ixy="0"
+        ixz="0"
+        iyy="0.0039485"
+        iyz="0"
+        izz="0.0040369" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/left_thigh.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/left_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint
+    name="left_hip_joint"
+    type="revolute">
+    <!-- 0  0.17 0 -->
+    <origin
+      xyz="0 0.2 0"
+      rpy="-1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_thigh" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="50" />
+  </joint>
+
+
+
+
+  <link
+    name="left_shank">
+    <inertial>
+      <origin
+        xyz="0.15 0 0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.44105" />
+      <inertia
+        ixx="0.00011"
+        ixy="0"
+        ixz="0"
+        iyy="0.0040289"
+        iyz="0"
+        izz="0.0041175" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/left_shank.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/left_shank.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint
+    name="left_knee_joint"
+    type="revolute">
+    <!-- 0.3 0 0 -->
+    <origin
+      xyz="0.3 0 0.02"
+      rpy="0 0 0" />
+    <parent
+      link="left_thigh" />
+    <child
+      link="left_shank" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="50" />
+  </joint>
+
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="0.00049825 -0.00026472 0.01"
+        rpy="0 0 0" />
+      <mass
+        value="0.39086" />
+      <inertia
+        ixx="0.00027537"
+        ixy="-3.1007E-06"
+        ixz="0"
+        iyy="0.00027122"
+        iyz="0"
+        izz="0.00052053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/left_wheel.STL" />
+      </geometry>
+
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+      </surface>
+
+    </collision>
+
+  </link>
+
+
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <!-- 0.3 0 0.01 -->
+    <origin
+      xyz="0.3 0 0.02"
+      rpy="0 0 0" />
+    <parent
+      link="left_shank" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+
+<!-- 下面是右腿的部分 -->
+
+
+  <link
+    name="right_thigh">
+    <inertial>
+      <origin
+        xyz="0.15 0 0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.43749" />
+      <inertia
+        ixx="0.00010"
+        ixy="0"
+        ixz="0"
+        iyy="0.0039485"
+        iyz="0"
+        izz="0.0040369" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/right_thigh.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/right_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="right_hip_joint"
+    type="revolute">
+    <!-- 0. - 0.17 0 -->
+    <origin
+      xyz="0 -0.2 0"
+      rpy="-1.5708 1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_thigh" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="50" />
+  </joint>
+
+  <link
+    name="right_shank">
+    <inertial>
+      <origin
+        xyz="0.15 0 -0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.44105" />
+      <inertia
+        ixx="0.00010"
+        ixy="0"
+        ixz="0"
+        iyy="0.00403"
+        iyz="0"
+        izz="0.00412" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/right_shank.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/right_shank.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="right_knee_joint"
+    type="revolute">
+    <!-- 0.3 0 0 -->
+    <origin
+      xyz="0.3 0 -0.02"
+      rpy="0 0 0" />
+    <parent
+      link="right_thigh" />
+    <child
+      link="right_shank" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="50" />
+  </joint>
+
+
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="0.00054909 0.00012975 -0.01"
+        rpy="0 0 0" />
+      <mass
+        value="0.39086" />
+      <inertia
+        ixx="0.00027664"
+        ixy="1.6581E-06"
+        ixz="0"
+        iyy="0.00026995"
+        iyz="0"
+        izz="0.00052053" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="mt1">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbrtestpkg/meshes/right_wheel.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100000.0</mu>
+            <mu2>100000.0</mu2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </link>
+
+
+
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <!-- 0.3 0 -0.01 -->
+    <origin
+      xyz="0.3 0 -0.02"
+      rpy="0 0 0" />
+    <parent
+      link="right_shank" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+</robot>

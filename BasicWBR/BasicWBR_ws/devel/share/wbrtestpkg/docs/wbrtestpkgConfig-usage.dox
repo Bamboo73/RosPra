@@ -3,9 +3,9 @@
 <node name="wbrtestpkg" pkg="wbrtestpkg" type="wbrtestpkg">
   <param name="int_param" type="int" value="50" />
   <param name="double_param" type="double" value="1.57" />
-  <param name="pos_kp" type="double" value="0.0" />
+  <param name="pos_kp" type="double" value="4.0" />
   <param name="pos_ki" type="double" value="0.0" />
-  <param name="pos_kd" type="double" value="0.0" />
+  <param name="pos_kd" type="double" value="8.0" />
   <param name="vel_kp" type="double" value="0.0" />
   <param name="vel_ki" type="double" value="0.0" />
   <param name="vel_kd" type="double" value="0.0" />

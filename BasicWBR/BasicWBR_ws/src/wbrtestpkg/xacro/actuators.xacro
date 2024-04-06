@@ -45,10 +45,10 @@
 
     
     <!-- 使用位置控制的关节 left_hip_joint -->
-    <xacro:Position_transmission_macro joint_name="right_knee_joint" />
-    <xacro:Position_transmission_macro joint_name="right_hip_joint" />
-    <xacro:Position_transmission_macro joint_name="left_knee_joint" />
-    <xacro:Position_transmission_macro joint_name="left_hip_joint" />
+    <xacro:Effor_transmission_macro joint_name="right_knee_joint" />
+    <xacro:Effor_transmission_macro joint_name="right_hip_joint" />
+    <xacro:Effor_transmission_macro joint_name="left_knee_joint" />
+    <xacro:Effor_transmission_macro joint_name="left_hip_joint" />
 
 
     <!-- 启动gazebo_ros_control 插件，命名空间设置为/robot_wbr -->

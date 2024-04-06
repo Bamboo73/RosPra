@@ -10,7 +10,7 @@
 
     <!-- 以下部分是新加入的关于控制相关的内容 -->
     <!-- 1 Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find wbrtestpkg)/yaml/controllers.yaml" command="load"/>
+    <rosparam file="$(find wbrtestpkg)/yaml/controllers2.yaml" command="load"/>
     <!-- 2 load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
         output="screen" ns="/robot_wbr" args="
