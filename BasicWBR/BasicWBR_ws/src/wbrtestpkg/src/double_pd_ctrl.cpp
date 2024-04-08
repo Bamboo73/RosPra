@@ -33,6 +33,13 @@
 // #include "wbrtestpkg/drConfig.h"
 // #include 
 
+// 进行一些获取轮子位置的尝试：
+// #include <tf/transform_listener.h>
+#include "gazebo_msgs/LinkStates.h"
+
+
+
+
 
 #define LoopRate 100
 #define CtrlScaler 5
@@ -98,6 +105,9 @@ class Robot_Class{
         float Target_Pos_Hip;
         float Target_Pos_Knee;
 
+        //机器人的状态变量们。
+        float X_states[4];          // 机器人当前状态 x q dx dq;
+
         void InitRobot() // 初始化机器人函数。主要是控制参数等。
         {
             balancePidFirstFlag = 1;
@@ -137,6 +147,10 @@ class Robot_Class{
         void VelPidControl();
         void VelSpeedCalculation(double delta_t);
 
+
+        void LQR_Contorller();
+
+
         void SetRobotBalanceCmd(float LeftEcmd, float RightEcmd); //只是用来发布控制消息的，解耦用。
         void SetRobotOrientations(float yaw,float pitch, float roll); // 后文实现
 
@@ -173,13 +187,20 @@ void Robot_Class::InverseKinematicsSolving(double target_h)
 
     // ROS_INFO("Solve cosa: %.3f  theta1: %.3f theta2: %.3f\n",cosa,Target_Pos_Hip,Target_Pos_Knee);
     
+    // 出于设计LQR控制器需要，得计算一下模拟倒立摆的杆长
+    float lc;
+    float y_c;
+    y_c = (-mass_both_thigh*(0.5* l1 * cosa ) - (l1* cosa + 0.5*l2*cos(beta))*mass_both_shank)/mass_total;
+    lc = h+y_c;
+    // ROS_INFO("pendulum length l:%.5f , total mass M: %.5f",lc,mass_total);
+
 }
 
 //设置平衡PID控制的参数
 void Robot_Class::SetRobotBalancePidParams(float kp,float ki,float kd)
 {
     balance_pid_kp = kp;
-    balance_pid_ki = ki;
+    balance_pid_ki = ki; 
     balance_pid_kd = kd;
 }
 
@@ -236,6 +257,9 @@ void Robot_Class::VelSpeedCalculation(double delta_t) //这下有滤波器了
     // ROS_INFO("delta_t is: %.2f",delta_t);
     int i;
     
+    //求解一下位置。[LQR 相关] 【已经弃用】
+    // X_states[0] = wheel_radius * 0.5 *(r_wheel_pos + l_wheel_pos);
+
     double filtersum[2]; //存储左右滤波器的中途求和 0:left 1:right
     double r_wheel_pos_error = r_wheel_pos - r_wheel_pos_last;
     double l_wheel_pos_error = l_wheel_pos - l_wheel_pos_last;
@@ -262,6 +286,10 @@ void Robot_Class::VelSpeedCalculation(double delta_t) //这下有滤波器了
     l_wheel_vel_cal = filtersum[0] / (1.0*winlength);
     r_wheel_vel_cal = filtersum[1] / (1.0*winlength);
 
+
+    //LQR有关的内容：
+    X_states[2] = (l_wheel_vel_cal + r_wheel_vel_cal)*0.5;
+
     // ROS_INFO("delta_t is: %.2f; delta_lp is : %.2f ; cal_l_vel is: %.2f", \
     delta_t,l_wheel_pos_error,l_wheel_vel_cal);
     //更新上一次的位置。
@@ -281,6 +309,25 @@ void Robot_Class::SetRobotBalanceCmd(float LeftEcmd, float RightEcmd) //只是�
 {
     //LeftWheelEffortCmdPub.publish(LeftEcmd);
     //RightWheelEffortCmdPub.publish(RightEcmd);
+}
+
+void Robot_Class::LQR_Contorller() //说明：测试中，目前只支持h=0.5 的情况
+{
+    float X_des[4] = {0,0,0,0}; // 目标位置：别动
+
+
+
+   
+
+    float K[4] = {0.100995  , 0.064053  , 0.460320,  0.025315}; //计算得到的状态反馈矩阵
+
+    int i;
+    float ctrl_u = 0.0;
+    for(i = 0;i<4;i++)
+    {
+        ctrl_u += K[i]*(X_des[i] - X_states[i]);
+    }
+    balance_calculated_effort = ctrl_u;
 }
 
 
@@ -330,6 +377,9 @@ void doImuMsg(const  sensor_msgs::Imu::ConstPtr & msg_p){  // 传感器的回调
     Myrobot.orientation_pitch = theta;
     Myrobot.orientation_roll = psi;
 
+    Myrobot.X_states[1] = theta; // theta = theta;
+    Myrobot.X_states[3] = msg_p->angular_velocity.y; // 有点担心对不对... ....
+
 }
 void doMsg_height(const  std_msgs::Float64::ConstPtr & msg_p){  // 传感器的回调函数
     double h = msg_p->data;
@@ -356,6 +406,32 @@ void doJointStatesMsg(const sensor_msgs::JointState::ConstPtr & msg_p )
         Myrobot.l_wheel_pos_last = Myrobot.l_wheel_pos;
     }
 }
+
+void doGazeboLinkMsg(const gazebo_msgs::LinkStates::ConstPtr & msg)
+{
+    int modelCount = msg->name.size();
+    float posr,posl;
+    float velr,vell;
+    for(int modelInd = 0; modelInd < modelCount; ++modelInd)
+    {
+        if(msg->name[modelInd] == "my_wbr::right_wheel")
+        {
+            posr = msg->pose[modelInd].position.x;
+            velr = msg->twist[modelInd].linear.x;
+        }
+        if(msg->name[modelInd] == "my_wbr::left_wheel")
+        {
+            posl = msg->pose[modelInd].position.x;
+            vell = msg->twist[modelInd].linear.x;
+        }
+    }
+
+    Myrobot.X_states[0] = (posr + posl)/2.0;
+    // ROS_INFO("direct get vel dx: %.3f",0.5*(velr+ vell));
+
+}
+
+
 
 /*------------------------------------------------------------------------------------------------
  *------------------------------------------------------------------------------------------------
@@ -399,6 +475,7 @@ int main(int argc, char * argv[])
     
 
     // // 反馈相关
+    ros::Subscriber ReadGazeboLinkValues = nt.subscribe<gazebo_msgs::LinkStates>("/gazebo/link_states",10,doGazeboLinkMsg);
     ros::Subscriber ReadJointValues = nt.subscribe<sensor_msgs::JointState>("/robot_wbr/joint_states",10,doJointStatesMsg);
     // // ros::Publisher RightWheelPosPub = nt.advertise<std_msgs::Float64>("/zzw/right_wheel_pos",10);
     // // ros::Publisher RightWheelVelPub = nt.advertise<std_msgs::Float64>("/zzw/right_wheel_vel",10);
@@ -429,6 +506,17 @@ int main(int argc, char * argv[])
     std_msgs::Float64 RobotWheelVelOb;
     std_msgs::Float64 RobotWheelVelCalOb;
 
+
+    // //尝试获取机器人驱动轮的位置
+    // tf::TransformListener left_wheel_tf_listener;
+    // tf::TransformListener right_wheel_tf_listener;
+
+
+
+
+
+
+
     //std_msgs::Float64 RollSensorMsg; // 用于获取imu 的roll消息，便于使用rqt_graph 显示。
     ros::Rate r(LoopRate); //100Hz
 
@@ -457,10 +545,31 @@ int main(int argc, char * argv[])
         Myrobot.SetRobotBalancePidParams(3.8,0,5); // 初始化一下PID参数[开启动态调参后这句话就没用了]
         Myrobot.SetRobotVelPidParams(0,0,0);
     }
-
+    float obf;
     // 主循环
     while (ros::ok())
     {
+        //         if(1) //这部分的代码是关于机器人位置获取的。
+        // {
+        //     tf::StampedTransform transform_left;
+        //     try {
+        //     left_wheel_tf_listener.lookupTransform("ground_plane", "base_link", ros::Time(0), transform_left);
+        //     } catch (tf::TransformException& ex) {
+        //     ROS_ERROR("%s", ex.what());
+        //     ros::Duration(1.0).sleep();
+        //     continue;
+        //     }
+
+            
+        //    // left_wheel_tf_listener.lookupTransform("world", "left_wheel", ros::Time(0), transform_left);
+        //     //right_wheel_tf_listener.lookupTransform("world", "right_wheel", ros::Time(0), transform_right);  
+        //     double ltx = transform_left.getOrigin().x();
+        //     double rtx = 0.0; //transform_right.getOrigin().x();
+        //     ROS_INFO("test left wheel x:%.3f ; test right wheel x:%.3f ",ltx,rtx);
+
+        // }
+
+
         //逆运动学求解部分，按照频率变化[此举将使机器人关节能够缓慢地变动]
         height_change_counter++;
         if(height_change_counter >= height_change_rate)
@@ -498,6 +607,11 @@ int main(int argc, char * argv[])
             RobotWheelVelCalOb.data = Myrobot.l_wheel_vel_cal;
             RobotWheelVelCal.publish(RobotWheelVelCalOb);
             control_vel_rate_counter = 0;
+
+            //借低频宝地一用
+            ROS_INFO("x: %.3f q: %.3f dx: %.3f dq: %.3f \n dpdu: %.3f lqru: %.3f",
+            Myrobot.X_states[0],Myrobot.X_states[1],Myrobot.X_states[2],Myrobot.X_states[3]
+            ,Myrobot.balance_calculated_effort,obf);
         }
 
         //平衡控制部分
@@ -507,10 +621,17 @@ int main(int argc, char * argv[])
             //在速度控制实现之前，这里使用的平衡位置为0：
             //Myrobot.balance_target = 0;
             //Myrobot.balance_target = Myrobot.vel_pid_calculated_pos;
-            ROS_INFO("Target theta: %.2f",Myrobot.balance_target);
+            // ROS_INFO("Target theta: %.2f",Myrobot.balance_target);
             //进行一次平衡PID计算
-            Myrobot.BalancePidControl();
             
+            Myrobot.LQR_Contorller();
+            obf = Myrobot.balance_calculated_effort;
+            
+            Myrobot.BalancePidControl();
+            Myrobot.balance_calculated_effort = obf; 
+        
+            
+                
             //在wbrtestpkg这个包里面，下面这句话已经没用了，因为xacro文件我检查过，左右关节是对的。
             //Myrobot.SetRobotBalanceCmd(-Myrobot.balance_calculated_effort,-Myrobot.balance_calculated_effort);
             
@@ -540,6 +661,8 @@ int main(int argc, char * argv[])
             Myrobot.VelSpeedCalculation( 1.0  /LoopRate);//计算速度（一个长度为winlength的均值滤波器）
             //计算结果将保存在 r|l _wheel_vel_cal 当中
         }
+
+
 
         r.sleep();
         ros::spinOnce();

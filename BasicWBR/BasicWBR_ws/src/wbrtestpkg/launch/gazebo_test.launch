@@ -8,6 +8,17 @@
 
 
 
+    <!-- 启动 gazebo ，打开一个空世界（之后可以放一些障碍物我猜）-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+      <arg name = "paused" value = "true"/>
+    </include>
+
+    <!-- 在 gazebo 中显示机器人模型 -->
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="
+    -urdf -z 0.5
+    -model my_wbr 
+    -param robot_description"/>
+    
     <!-- 以下部分是新加入的关于控制相关的内容 -->
     <!-- 1 Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find wbrtestpkg)/yaml/controllers2.yaml" command="load"/>
@@ -34,14 +45,7 @@
     type="robot_state_publisher" />
 
 
-    <!-- 启动 gazebo ，打开一个空世界（之后可以放一些障碍物我猜）-->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
 
-    <!-- 在 gazebo 中显示机器人模型 -->
-    <node pkg="gazebo_ros" type="spawn_model" name="model" args="
-    -urdf -z 0.5
-    -model my_wbr 
-    -param robot_description"/>
 
 
   <node pkg = "wbrtestpkg" type = "dpd_ctrl_node" name = "dpd_ctrl_node" output="screen"/>

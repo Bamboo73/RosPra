@@ -26,4 +26,31 @@
     </sensor>
   </gazebo>
 
+  <!-- 尝试一个叫做libgazebo_ros_p3d 的插件，完成对机器人位置的确定 -->
+  <!-- 这里一开始用的是baselink，但是察觉到不对，整个控制模型的状态推导过程需要的是轮子的位置，而不是body的。 -->
+  <!-- Fake localization plugin -->
+  <!-- <plugin name="ground_truth_odometry" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>100.0</updateRate>
+    <bodyName>right_wheel</bodyName>
+    <topicName>gazebo/model_states</topicName>
+    <gaussianNoise>0.01</gaussianNoise>
+    <frameName>map</frameName>
+      <! initialize odometry for fake localization-->
+    <!-- <xyzOffsets>0 0 0</xyzOffsets>
+    <rpyOffsets>0 0 0</rpyOffsets>
+  </plugin> -->
+<!-- 
+  <plugin name="ground_truth_odometry" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>100.0</updateRate>
+    <bodyName>left_wheel</bodyName>
+    <topicName>gazebo/model_states</topicName>
+    <gaussianNoise>0.01</gaussianNoise>
+    <frameName>map</frameName> -->
+      <!-- initialize odometry for fake localization-->
+    <!-- <xyzOffsets>0 0 0</xyzOffsets>
+    <rpyOffsets>0 0 0</rpyOffsets>
+  </plugin> --> 
+
 </robot>

@@ -458,7 +458,7 @@ wbrtestpkgConfig::GroupDescription<wbrtestpkgConfig::DEFAULT, wbrtestpkgConfig> 
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.pos_kp = 20.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.pos_kp = 4.0;
+      __default__.pos_kp = 3.5;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(wbrtestpkgConfig::AbstractParamDescriptionConstPtr(new wbrtestpkgConfig::ParamDescription<double>("pos_kp", "double", 0, "pos_kp", "", &wbrtestpkgConfig::pos_kp)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -478,7 +478,7 @@ wbrtestpkgConfig::GroupDescription<wbrtestpkgConfig::DEFAULT, wbrtestpkgConfig> 
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.pos_kd = 20.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.pos_kd = 8.0;
+      __default__.pos_kd = 6.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(wbrtestpkgConfig::AbstractParamDescriptionConstPtr(new wbrtestpkgConfig::ParamDescription<double>("pos_kd", "double", 0, "pos_kp", "", &wbrtestpkgConfig::pos_kd)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
