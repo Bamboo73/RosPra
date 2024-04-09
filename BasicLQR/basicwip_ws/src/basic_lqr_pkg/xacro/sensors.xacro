@@ -1,0 +1,27 @@
+<!-- 基本的平衡车只有IMU一个传感器，即可 -->
+<robot name="sensors" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- 由于imu与body是固连的，所以直接绑base_link ok-->
+  <gazebo reference="mass_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <!-- 此处也有一个bodyName -->
+        <updateRateHZ>100.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <!-- 这个frameName是否可以使用imu_link 需要经过测试，因为原本这个代码的参考bodyName并非imu_link，这是我起的link名字 -->
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+
+</robot>

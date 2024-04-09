@@ -1,0 +1,14 @@
+\subsubsection usage Usage
+\verbatim
+<node name="basiclqr" pkg="basic_lqr_pkg" type="basiclqr">
+  <param name="pos_kp" type="double" value="4.0" />
+  <param name="pos_ki" type="double" value="0.0" />
+  <param name="pos_kd" type="double" value="5.0" />
+  <param name="k1" type="double" value="2.23607" />
+  <param name="k2" type="double" value="5.38859" />
+  <param name="k3" type="double" value="1.81378" />
+  <param name="k4" type="double" value="0.82212" />
+  <param name="pid_ctrl" type="bool" value="True" />
+</node>
+\endverbatim
+

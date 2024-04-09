@@ -96,11 +96,53 @@ robot2 xacro/yaml/launch | wip_ctrl.cpp (wip_ctrl_node) 在gazebo中载入wip �
 
 
 
+## /BasicLQR
+
 
 
 # 关于常用的一些内容
 
 （在各个文件当中不断习得的，可能会反复用到的内容）
+
+## 各种需要的前置包
+
+```
+dynamic_reconfigure gazebo_plugins gazebo_ros gazebo_ros_control roscpp rospy std_msgs urdf xacro
+```
+
+
+
+## tasks.json 文件
+
+```json
+{
+// 有关 tasks.json 格式的文档，请参见
+    // https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "catkin_make:debug", //代表提示的描述性信息
+            "type": "shell",  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行
+            "command": "catkin_make",//这个是我们需要运行的命令
+            "args": [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”
+            "group": {"kind":"build","isDefault":true},
+            "presentation": {
+                "reveal": "always"//可选always或者silence，代表是否输出信息
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
+
+```
+
+
+
+
+
+
+
+
 
 ## Gazebo
 

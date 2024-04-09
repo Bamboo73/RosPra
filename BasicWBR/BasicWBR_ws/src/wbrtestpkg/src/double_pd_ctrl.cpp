@@ -662,8 +662,6 @@ int main(int argc, char * argv[])
             //计算结果将保存在 r|l _wheel_vel_cal 当中
         }
 
-
-
         r.sleep();
         ros::spinOnce();
     }
