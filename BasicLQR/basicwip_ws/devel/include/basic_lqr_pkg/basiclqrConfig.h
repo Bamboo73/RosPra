@@ -452,41 +452,41 @@ basiclqrConfig::GroupDescription<basiclqrConfig::DEFAULT, basiclqrConfig> Defaul
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("pos_kd", "double", 0, "pos_kp", "", &basiclqrConfig::pos_kd)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __min__.k1 = -100.0;
+      __min__.k1 = -300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __max__.k1 = 100.0;
+      __max__.k1 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k1 = 2.23607;
+      __default__.k1 = -1.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k1", "double", 0, "k1", "", &basiclqrConfig::k1)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k1", "double", 0, "k1", "", &basiclqrConfig::k1)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __min__.k2 = -100.0;
+      __min__.k2 = -300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __max__.k2 = 100.0;
+      __max__.k2 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k2 = 5.38859;
+      __default__.k2 = 116.2;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k2", "double", 0, "k2", "", &basiclqrConfig::k2)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k2", "double", 0, "k2", "", &basiclqrConfig::k2)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __min__.k3 = -100.0;
+      __min__.k3 = -300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __max__.k3 = 100.0;
+      __max__.k3 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k3 = 1.81378;
+      __default__.k3 = -1.9117;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k3", "double", 0, "k3", "", &basiclqrConfig::k3)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k3", "double", 0, "k3", "", &basiclqrConfig::k3)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __min__.k4 = -100.0;
+      __min__.k4 = -300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __max__.k4 = 100.0;
+      __max__.k4 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k4 = 0.82212;
+      __default__.k4 = 10.38;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(basiclqrConfig::AbstractParamDescriptionConstPtr(new basiclqrConfig::ParamDescription<double>("k4", "double", 0, "k4", "", &basiclqrConfig::k4)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
