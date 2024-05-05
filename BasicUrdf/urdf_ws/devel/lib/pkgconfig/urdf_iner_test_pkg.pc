@@ -1,0 +1,8 @@
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/devel
+
+Name: urdf_iner_test_pkg
+Description: Description of urdf_iner_test_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

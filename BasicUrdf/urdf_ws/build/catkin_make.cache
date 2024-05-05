@@ -1,2 +1,2 @@
-basic_urdf_pkg:basic_xacro_pkg
+basic_urdf_pkg:basic_xacro_pkg:gazebo_ros_demos/gazebo_tutorials:gazebo_ros_demos/rrbot_control:gazebo_ros_demos/rrbot_description:gazebo_ros_demos/rrbot_gazebo:urdf_iner_test_pkg
 -DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/install -G Unix Makefiles

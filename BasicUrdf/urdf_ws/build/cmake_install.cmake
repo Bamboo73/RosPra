@@ -131,8 +131,13 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/gtest/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/gazebo_ros_demos/rrbot_control/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/gazebo_ros_demos/rrbot_description/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/gazebo_ros_demos/rrbot_gazebo/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/gazebo_ros_demos/gazebo_tutorials/cmake_install.cmake")
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/basic_urdf_pkg/cmake_install.cmake")
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/basic_xacro_pkg/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicUrdf/urdf_ws/build/urdf_iner_test_pkg/cmake_install.cmake")
 
 endif()
 

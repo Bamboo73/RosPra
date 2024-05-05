@@ -249,9 +249,25 @@ node只有rviz。topic 除了/rosout /rosout_agg 以外是上述这些。rqt_gra
 
 在不用原.rviz配置文件，改用重新配置之后，这个问题就解决了，不知道为什么。[又出问题了，我无法解释这个bug]
 
-##### [TODO]
+##### [Done](https://blog.csdn.net/m0_46325898/article/details/135133343)
 
-(见上)
+原因：/joint_state_publisher 和 /joint_state_publisher_gui 同时在发布话题 /joint_states ，导致 /robot_state_publisher 不会了
+
+
+
+### 3 gazebo_ros_demos
+
+这个是Gazebo当中为了说明urdf使用的官方教程当中的文件。文档：https://classic.gazebosim.org/tutorials?tut=ros_urdf
+
+下下来主要是为了看<inertia>标签用的。这个标签里面也有<origin>，表示了惯性张量阵所在矩阵，与连杆坐标系之间的关系。
+
+以上。
+
+
+
+
+
+
 
 ---
 
