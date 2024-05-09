@@ -1,0 +1,18 @@
+<robot name="robot_wbr" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <!--调用基本图形的惯性张量阵计算公式  -->
+    <xacro:include filename  = "inertial.xacro" />
+
+    <xacro:include filename = "robotmodel.xacro" />
+    <!-- 调用机器人模型 -->
+
+    <xacro:include filename="actuators.xacro" />
+    <!-- 绑定机器人驱动器（注意关节类型）+ 开启gazebo_ros_control 插件（注意命名空间）-->
+    
+
+    <xacro:include filename="sensors.xacro" />
+    <!-- 绑定外部传感器（内部传感器可以通过机器人状态读取） -->
+
+</robot>
+
+

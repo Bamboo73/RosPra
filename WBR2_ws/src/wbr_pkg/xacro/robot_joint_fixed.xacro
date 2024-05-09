@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="robot_joint_fixed" xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+<!-- 机器人的腿部关节全部指向左侧（z轴的正方向） -->
+<!-- 机器人完全站立的角度被定义为运动学的0位置  -->
+
+  <xacro:property name="hip_angle" value="0.7" />
+  <xacro:property name="knee_angle" value="-0.7" />
+
+  <joint
+    name="Left_hip_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.09 0"
+      rpy="-1.5708 ${1.5708 + hip_angle} 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  
+  <joint
+    name="Left_knee_joint"
+    type="fixed">
+    <origin
+      xyz="0.2 0 0.035"
+      rpy="0 0 ${knee_angle}" />
+    <parent
+      link="Left_thigh_link" />
+    <child
+      link="Left_shank_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  
+  <joint
+    name="Left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.18 0 0.035"
+      rpy="0 0 0" />
+    <parent
+      link="Left_shank_link" />
+    <child
+      link="Left_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <joint
+    name="Right_hip_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.09 0"
+      rpy="-1.5708 ${1.5708 + hip_angle} 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_thigh_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  
+  <joint
+    name="Right_knee_joint"
+    type="fixed">
+    <origin
+      xyz="0.2 0 -0.035"
+      rpy="0 0 ${knee_angle}" />
+    <parent
+      link="Right_thigh_link" />
+    <child
+      link="Right_shank_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <joint
+    name="Right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.18 0 -0.035"
+      rpy="0 0 0" />
+    <parent
+      link="Right_shank_link" />
+    <child
+      link="Right_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  
+</robot>

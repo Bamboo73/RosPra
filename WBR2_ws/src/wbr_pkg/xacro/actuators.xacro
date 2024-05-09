@@ -1,0 +1,61 @@
+<robot name = "actuators" xmlns:xacro = "http://wiki.ros.org/xacro">
+
+    <!-- 力矩控制的Interface xacro宏定义 -->
+    <xacro:macro name="Effor_transmission_macro" params = "joint_name">
+        <transmission name="${joint_name}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <!-- 在 Gazebo      当中用 ： EffortJointInterface -->
+                <!-- 在 RobotHW     当中用 ： hardware_interface/EffortJointInterface -->
+            </joint>
+
+            <actuator name="${joint_name}_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <!-- 在 Indigo 之前的版本，hardwareInterface只在此处定义（和我noetic什么关系x） -->
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <!-- 位置控制的Interface xacro宏定义 -->
+    <xacro:macro name="Position_transmission_macro" params = "joint_name">
+        <transmission name="${joint_name}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <!-- 在 Gazebo      当中用 ： EffortJointInterface -->
+                <!-- 在 RobotHW     当中用 ： hardware_interface/EffortJointInterface -->
+            </joint>
+
+            <actuator name="${joint_name}_motor">
+                <mechanicalReduction>1</mechanicalReduction>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <!-- 在 Indigo 之前的版本，hardwareInterface只在此处定义（和我noetic什么关系x） -->
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+
+    <!-- 使用力控的关节 -->
+    <xacro:Effor_transmission_macro joint_name="Right_wheel_joint" />
+    <xacro:Effor_transmission_macro joint_name="Left_wheel_joint" />
+
+    <!-- 使用位置控制的关节  -->
+    <xacro:if value = "${joint_cond}">
+        <xacro:Position_transmission_macro joint_name="Right_knee_joint" />
+        <xacro:Position_transmission_macro joint_name="Right_hip_joint" />
+        <xacro:Position_transmission_macro joint_name="Left_knee_joint" />
+        <xacro:Position_transmission_macro joint_name="Left_hip_joint" />
+    </xacro:if>
+
+    <!-- 启动gazebo_ros_control 插件，命名空间设置为/robot_wbr -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/robot_wbr</robotNamespace>
+        </plugin>
+    </gazebo>
+
+</robot>

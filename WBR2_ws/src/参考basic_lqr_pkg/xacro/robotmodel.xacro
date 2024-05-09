@@ -1,0 +1,165 @@
+<!--
+    使用 xacro 优化 URDF 版的小车底盘实现：
+
+    实现思路:
+    1.将一些常量、变量封装为 xacro:property
+      比如:PI 值、小车底盘半径、离地间距、车轮半径、宽度 ....
+    2.使用 宏 封装驱动轮以及支撑轮实现，调用相关宏生成驱动轮与支撑轮
+
+-->
+<!-- 根标签，必须声明 xmlns:xacro -->
+<robot name="my_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- 封装变量、常量 -->
+    <!-- PI 值设置精度需要高一些，否则后续车轮翻转量计算时，可能会出现肉眼不能察觉的车轮倾斜，从而导致模型抖动 -->
+    <xacro:property name="PI" value="3.1415926"/>
+    <!-- 宏:黑色设置 -->
+    
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0" />
+    </material>
+
+    <!-- 底盘属性 -->
+    <xacro:property name="base_footprint_radius" value="0.001" /> <!-- base_footprint 半径  -->
+    <xacro:property name="base_link_m" value="0.05" /> <!-- 质量  -->
+
+    <!-- 驱动轮 -->
+    <!-- 驱动轮属性 -->
+    <xacro:property name="wheel_radius" value="0.05" /><!-- 半径 -->
+    <xacro:property name="wheel_length" value="0.02" /><!-- 宽度 -->
+    <xacro:property name="wheel_m" value="0.8" /> <!-- 质量  -->
+
+    <!-- 底盘 -->
+    <link name="base_footprint">
+      <visual>
+        <geometry>
+          <sphere radius="${base_footprint_radius}" />
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <box size="0.01 0.5 0.01"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="yellow">
+          <color rgba="0.5 0.3 0.0 0.5" />
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.01 0.5 0.01"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </collision>
+      <xacro:Box_inertial_matrix m="0.01" w="0.01" h="0.5" l = "0.01" />
+    </link>
+
+
+    <joint name="base_link2base_footprint" type="fixed">
+      <parent link="base_footprint" />
+      <child link="base_link" />
+      <origin xyz="0 0 ${wheel_radius}" />
+    </joint>
+    <gazebo reference="base_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+
+    <link name="vertical_link">
+      <visual>
+        <geometry>
+         <box size="0.01 0.01 0.5"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="yellow">
+          <color rgba="0.5 0.3 0.0 0.5" />
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.01 0.01 0.5"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </collision>
+      <xacro:Box_inertial_matrix m="0.01" w="0.01" h="0.01" l = "0.5" />
+    </link>
+
+    <joint name="base2vertial_link" type="fixed">
+      <parent link="base_link" />
+      <child link="vertical_link" />
+      <origin xyz="0 0 0.25" />
+    </joint>
+    <gazebo reference="vertical_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+
+
+    <!-- 驱动轮宏实现 -->
+    <xacro:macro name="add_wheels" params="name flag">
+      <link name="${name}_wheel">
+        <visual>
+          <geometry>
+            <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="${PI / 2} 0.0 0.0" />
+          <material name="black" />
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+          </geometry>
+          <origin xyz="0.0 0.0 0.0" rpy="${PI / 2} 0.0 0.0" />
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${wheel_m}" r="${wheel_radius}" h="${wheel_length}" />
+
+      </link>
+
+      <joint name="${name}_wheel_joint" type="continuous">
+        <parent link="base_link" />
+        <child link="${name}_wheel" />
+        <origin xyz="0 ${flag *0.25} 0 " />
+        <axis xyz="0 1 0" />
+      </joint>
+
+      <gazebo reference="${name}_wheel">
+        <material>Gazebo/Black</material>
+      </gazebo>
+
+    </xacro:macro>
+
+    <xacro:add_wheels name="left" flag="1" />
+    <xacro:add_wheels name="right" flag="-1" />
+    
+
+    <link name="mass_link">
+      <visual>
+        <geometry>
+         <sphere radius = "0.1"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <material name="yellow">
+          <color rgba="0.5 0.3 0.0 0.5" />
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <sphere radius = "0.1"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </collision>
+      <xacro:sphere_inertial_matrix m="10" r="0.1" />
+    </link>
+
+    <joint name="mass2vertial_joint" type="fixed">
+      <parent link="vertical_link" />
+      <child link="mass_link" />
+      <origin xyz="0 0 0.25" />
+    </joint>
+
+    <gazebo reference="mass_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel
+
+Name: basic_lqr_pkg
+Description: Description of basic_lqr_pkg
+Version: 0.0.0
+Cflags: -I/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

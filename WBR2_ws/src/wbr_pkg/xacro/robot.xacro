@@ -1,0 +1,29 @@
+<robot name="robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:include filename="robot_links.xacro" />
+    <!-- 调用机器人模型 -->
+
+    <xacro:property name="joint_cond" value="0" />
+    <!-- 1:允许关节运动 0 ：关节锁死 -->
+
+    <!-- 0:不允许关节运动，即关节锁死 -->
+    <xacro:unless value= "${joint_cond}">
+        <xacro:include filename="robot_joint_fixed.xacro" />
+        <!-- 关节锁死（可以在此文件中修改关节偏置量）-->
+    </xacro:unless>
+
+    <!-- 1: 允许关节运动，可以启动关节位置控制甚至力控制器 -->
+    <xacro:if value = "${joint_cond}">
+        <xacro:include filename="robot_joint_revolute.xacro" />
+    </xacro:if>
+
+    <!-- 关节锁死（可以在此文件中修改关节偏置量）-->
+    <xacro:include filename="actuators.xacro" />
+
+
+    <!-- 绑定机器人驱动器（注意关节类型）+ 开启gazebo_ros_control 插件（注意命名空间）-->
+    <xacro:include filename="sensors.xacro" />
+    <!-- 绑定外部传感器（内部传感器可以通过机器人状态读取） -->
+</robot>
+
+
