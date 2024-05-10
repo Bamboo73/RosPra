@@ -67,14 +67,14 @@ set(wbr_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(wbr_pkg_SOURCE_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/wbr_pkg)
-  set(wbr_pkg_DEVEL_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel)
+  set(wbr_pkg_SOURCE_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg)
+  set(wbr_pkg_DEVEL_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel)
   set(wbr_pkg_INSTALL_PREFIX "")
   set(wbr_pkg_PREFIX ${wbr_pkg_DEVEL_PREFIX})
 else()
   set(wbr_pkg_SOURCE_PREFIX "")
   set(wbr_pkg_DEVEL_PREFIX "")
-  set(wbr_pkg_INSTALL_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install)
+  set(wbr_pkg_INSTALL_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install)
   set(wbr_pkg_PREFIX ${wbr_pkg_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(wbr_pkg_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(wbr_pkg_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install/lib;/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(wbr_pkg_EXPORTED_TARGETS "")
+set(wbr_pkg_EXPORTED_TARGETS "wbr_pkg_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${wbr_pkg_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

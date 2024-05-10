@@ -21,17 +21,17 @@
     <!-- 以下部分是新加入的关于控制相关的内容 -->
     <!-- 1 Load joint controller configurations from YAML file to parameter server -->
 
-    <!-- <rosparam file="$(find basic_lqr_pkg)/yaml/robot_lqr.yaml" command="load"/> -->
+    <rosparam file="$(find wbr_pkg)/yaml/robot_ctrl.yaml" command="load"/>
 
     <!-- 2 load the controllers -->
 
-    <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" ns="/robot_lqr" args="
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/robot_wbr" args="
         joint_state_controller 
-        right_wheel_ctrl
-        left_wheel_ctrl
+        Right_wheel_ctrl
+        Left_wheel_ctrl
         "
-        /> -->
+        />
 
     <node
       name="joint_state_publisher"

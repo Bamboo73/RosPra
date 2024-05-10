@@ -8,8 +8,11 @@
 <!-- 机器人的腿部关节全部指向左侧（z轴的正方向） -->
 <!-- 机器人完全站立的角度被定义为运动学的0位置  -->
 
-  <xacro:property name="hip_angle" value="0.7" />
-  <xacro:property name="knee_angle" value="-0.7" />
+  <!-- <xacro:property name="hip_angle" value="0.531" />
+  <xacro:property name="knee_angle" value="-0.923" /> -->
+1
+  <xacro:property name="hip_angle" value="0.367" />
+  <xacro:property name="knee_angle" value="-0.641" />
 
   <joint
     name="Left_hip_joint"

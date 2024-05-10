@@ -1,8 +1,8 @@
-# Install script for directory: /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/参考basic_lqr_pkg
+# Install script for directory: /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/参考basic_lqr_pkg
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,33 +38,33 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/basic_lqr_pkg" TYPE FILE FILES "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/include/basic_lqr_pkg/dyparaConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/basic_lqr_pkg" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/include/basic_lqr_pkg/dyparaConfig.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/basic_lqr_pkg" TYPE FILE FILES "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/lib/python3/dist-packages/basic_lqr_pkg/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/basic_lqr_pkg" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/lib/python3/dist-packages/basic_lqr_pkg/__init__.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/lib/python3/dist-packages/basic_lqr_pkg/cfg")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/lib/python3/dist-packages/basic_lqr_pkg/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/basic_lqr_pkg" TYPE DIRECTORY FILES "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/lib/python3/dist-packages/basic_lqr_pkg/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/basic_lqr_pkg" TYPE DIRECTORY FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/lib/python3/dist-packages/basic_lqr_pkg/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build/参考basic_lqr_pkg/catkin_generated/installspace/basic_lqr_pkg.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build/参考basic_lqr_pkg/catkin_generated/installspace/basic_lqr_pkg.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/basic_lqr_pkg/cmake" TYPE FILE FILES
-    "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build/参考basic_lqr_pkg/catkin_generated/installspace/basic_lqr_pkgConfig.cmake"
-    "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build/参考basic_lqr_pkg/catkin_generated/installspace/basic_lqr_pkgConfig-version.cmake"
+    "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build/参考basic_lqr_pkg/catkin_generated/installspace/basic_lqr_pkgConfig.cmake"
+    "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build/参考basic_lqr_pkg/catkin_generated/installspace/basic_lqr_pkgConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/basic_lqr_pkg" TYPE FILE FILES "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/参考basic_lqr_pkg/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/basic_lqr_pkg" TYPE FILE FILES "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/参考basic_lqr_pkg/package.xml")
 endif()
 

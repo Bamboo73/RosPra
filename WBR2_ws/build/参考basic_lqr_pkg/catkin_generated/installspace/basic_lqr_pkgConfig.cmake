@@ -67,14 +67,14 @@ set(basic_lqr_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(basic_lqr_pkg_SOURCE_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/参考basic_lqr_pkg)
-  set(basic_lqr_pkg_DEVEL_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel)
+  set(basic_lqr_pkg_SOURCE_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/参考basic_lqr_pkg)
+  set(basic_lqr_pkg_DEVEL_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel)
   set(basic_lqr_pkg_INSTALL_PREFIX "")
   set(basic_lqr_pkg_PREFIX ${basic_lqr_pkg_DEVEL_PREFIX})
 else()
   set(basic_lqr_pkg_SOURCE_PREFIX "")
   set(basic_lqr_pkg_DEVEL_PREFIX "")
-  set(basic_lqr_pkg_INSTALL_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install)
+  set(basic_lqr_pkg_INSTALL_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install)
   set(basic_lqr_pkg_PREFIX ${basic_lqr_pkg_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install/lib;/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

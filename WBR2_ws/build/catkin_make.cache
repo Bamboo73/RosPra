@@ -1,2 +1,2 @@
 wbr_pkg:参考basic_lqr_pkg
--DCATKIN_DEVEL_PREFIX=/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install -G Unix Makefiles

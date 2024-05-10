@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src
+CMAKE_SOURCE_DIR = /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build
+CMAKE_BINARY_DIR = /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build
 
 # Utility rule file for basic_lqr_pkg_xacro_generated_to_devel_space_.
 
@@ -63,10 +63,10 @@ basic_lqr_pkg_xacro_generated_to_devel_space_: 参考basic_lqr_pkg/CMakeFiles/ba
 .PHONY : 参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/build
 
 参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/clean:
-	cd /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build/参考basic_lqr_pkg && $(CMAKE_COMMAND) -P CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/cmake_clean.cmake
+	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build/参考basic_lqr_pkg && $(CMAKE_COMMAND) -P CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/cmake_clean.cmake
 .PHONY : 参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/clean
 
 参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/depend:
-	cd /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/参考basic_lqr_pkg /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build/参考basic_lqr_pkg /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/build/参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/参考basic_lqr_pkg /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build/参考basic_lqr_pkg /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/build/参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : 参考basic_lqr_pkg/CMakeFiles/basic_lqr_pkg_xacro_generated_to_devel_space_.dir/depend
 

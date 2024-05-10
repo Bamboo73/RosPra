@@ -2,8 +2,10 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-
 <robot name="robot_links" xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+  <xacro:property name="is_stl_wheel" value="0" />
 
   <link name = "foot_print">
     <visual>
@@ -66,6 +68,13 @@
     </collision>
 
   </link>
+
+  <gazebo reference = "base_link">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+
+
 <!-- *********************************************************************************************************************************** -->
   <link
     name="Left_thigh_link">
@@ -149,46 +158,6 @@
     </collision>
   </link>
 <!-- *********************************************************************************************************************************** -->
-  <link
-    name="Left_wheel_link">
-    <inertial>
-      <origin
-        xyz="0 0 0.0175"
-        rpy="0 0 0" />
-      <mass
-        value="1.6567" />
-      <inertia
-        ixx="0.002913"
-        ixy="-2.407E-20"
-        ixz="-4.8224E-21"
-        iyy="0.002913"
-        iyz="2.5619E-21"
-        izz="0.0054878" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://wbr_pkg/meshes/Left_wheel_link.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.84706 0.84706 0.84706 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://wbr_pkg/meshes/Left_wheel_link.STL" />
-      </geometry>
-    </collision>
-  </link>
 <!-- *********************************************************************************************************************************** -->
   <link
     name="Right_thigh_link">
@@ -272,6 +241,9 @@
     </collision>
   </link>
 <!-- *********************************************************************************************************************************** -->
+  
+  <!-- 当 is_stl_wheel 为 true 的时候，将使用stl的轮子 -->
+  <xacro:if value = "${is_stl_wheel}">
   <link
     name="Right_wheel_link">
     <inertial>
@@ -313,4 +285,131 @@
     </collision>
   </link>
 
+  <link
+    name="Left_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 0.0175"
+        rpy="0 0 0" />
+      <mass
+        value="1.6567" />
+      <inertia
+        ixx="0.002913"
+        ixy="-2.407E-20"
+        ixz="-4.8224E-21"
+        iyy="0.002913"
+        iyz="2.5619E-21"
+        izz="0.0054878" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbr_pkg/meshes/Left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.84706 0.84706 0.84706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wbr_pkg/meshes/Left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  </xacro:if>
+
+  <!-- 当 is_stl_wheel 为 false 的时候，将使用下方urdf直接建模的轮子 -->
+  <xacro:property name = "wheel_r" value = "0.08"/>
+  <xacro:property name = "wheel_h" value = "0.035"/>
+  <xacro:property name = "wheel_m" value = "1.6567"/>
+
+
+  <xacro:macro name="cylinder_inertial_matrix" params="m r h">
+    <!-- <inertial>
+      <origin
+        xyz="0 0 0.0175"
+        rpy="0 0 0" /> -->
+      <mass value="${m}" />
+      <inertia ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+        iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+        izz="${m*r*r/2}" /> 
+    <!-- </inertial> -->
+  </xacro:macro>
+
+
+  <xacro:unless value = "${is_stl_wheel}">
+  <link
+    name="Right_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 -0.0175"
+        rpy="0 0 0" />
+      <xacro:cylinder_inertial_matrix m="${wheel_m}" r="${wheel_r}" h="${wheel_h}" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 -0.0175"
+        rpy="0 0 0" />
+      <geometry>
+          <cylinder radius="${wheel_r}" length="${wheel_h}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.84706 0.84706 0.84706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.0175"
+        rpy="0 0 0" />
+      <geometry>
+         <cylinder radius="${wheel_r}" length="${wheel_h}"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="Left_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 0.0175"
+        rpy="0 0 0" />
+      <xacro:cylinder_inertial_matrix m="${wheel_m}" r="${wheel_r}" h="${wheel_h}" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0.0175"
+        rpy="0 0 0" />
+      <geometry>
+          <cylinder radius="${wheel_r}" length="${wheel_h}"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.84706 0.84706 0.84706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.0175"
+        rpy="0 0 0" />
+      <geometry>
+         <cylinder radius="${wheel_r}" length="${wheel_h}"/>
+      </geometry>
+    </collision>
+  </link>
+
+  </xacro:unless>
 </robot>

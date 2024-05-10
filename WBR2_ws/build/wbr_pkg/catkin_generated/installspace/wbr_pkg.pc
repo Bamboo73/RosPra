@@ -1,8 +1,8 @@
-prefix=/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install
 
 Name: wbr_pkg
 Description: Description of wbr_pkg
 Version: 0.0.0
-Cflags: 
+Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
 Requires: 

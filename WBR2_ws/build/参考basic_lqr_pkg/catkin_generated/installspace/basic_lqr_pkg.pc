@@ -1,4 +1,4 @@
-prefix=/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install
+prefix=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install
 
 Name: basic_lqr_pkg
 Description: Description of basic_lqr_pkg

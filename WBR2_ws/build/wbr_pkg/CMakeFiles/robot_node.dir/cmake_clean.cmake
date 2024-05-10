@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/lib/wbr_pkg/robot_node"
-  "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/lib/wbr_pkg/robot_node.pdb"
+  "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/lib/wbr_pkg/robot_node"
+  "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/lib/wbr_pkg/robot_node.pdb"
   "CMakeFiles/robot_node.dir/src/robot_main.cpp.o"
 )
 

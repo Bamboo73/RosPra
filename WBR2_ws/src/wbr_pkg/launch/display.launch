@@ -6,7 +6,7 @@
     textfile="$(find wbr_pkg)/urdf/wbr_sim_files_mesh.urdf" /> -->
  <param 
     name="robot_description" 
-    command="$(find xacro)/xacro $(find wbr_pkg)/xacro/robot_model.xacro" />
+    command="$(find xacro)/xacro $(find wbr_pkg)/xacro/robot.xacro" />
 
   <node
     name="joint_state_publisher_gui"

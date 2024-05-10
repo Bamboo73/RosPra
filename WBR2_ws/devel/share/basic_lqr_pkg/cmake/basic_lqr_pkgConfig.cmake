@@ -67,14 +67,14 @@ set(basic_lqr_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(basic_lqr_pkg_SOURCE_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/参考basic_lqr_pkg)
-  set(basic_lqr_pkg_DEVEL_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel)
+  set(basic_lqr_pkg_SOURCE_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/参考basic_lqr_pkg)
+  set(basic_lqr_pkg_DEVEL_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel)
   set(basic_lqr_pkg_INSTALL_PREFIX "")
   set(basic_lqr_pkg_PREFIX ${basic_lqr_pkg_DEVEL_PREFIX})
 else()
   set(basic_lqr_pkg_SOURCE_PREFIX "")
   set(basic_lqr_pkg_DEVEL_PREFIX "")
-  set(basic_lqr_pkg_INSTALL_PREFIX /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/install)
+  set(basic_lqr_pkg_INSTALL_PREFIX /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/install)
   set(basic_lqr_pkg_PREFIX ${basic_lqr_pkg_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(basic_lqr_pkg_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/include " STREQUAL " ")
+if(NOT "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/include " STREQUAL " ")
   set(basic_lqr_pkg_INCLUDE_DIRS "")
-  set(_include_dirs "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/include")
+  set(_include_dirs "/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/include " STREQU
         message(FATAL_ERROR "Project 'basic_lqr_pkg' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'basic_lqr_pkg' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/src/参考basic_lqr_pkg/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'basic_lqr_pkg' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/参考basic_lqr_pkg/${idir}'.  ${_report}")
     endif()
     _list_append_unique(basic_lqr_pkg_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/bamboo/Documents/MyRosDocs/TestDocs/WBR2_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/devel/lib;/home/bamboo70/MyDocs/WIP_Simu/wipws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
