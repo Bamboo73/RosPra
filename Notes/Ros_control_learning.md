@@ -137,7 +137,11 @@ effort_controllers/JointEffortController
 
 ### 4、写自己的控制器
 
-这之后的工作就不难了，将自己需要的控制器写好就行。
+这之后的工作就不难了，将自己需要的控制器写好就行,比如：
+
+```
+CmdPub  = nt.advertise<std_msgs::Float64>("/robot_simple/my_effort_controller/command",10);
+```
 
 
 
@@ -205,23 +209,24 @@ robot_simple:
     pid: {p: 100.0, i: 0.01, d: 10.0}
     #似乎，pos控制没有pid参数...
 
-/gazebo_ros_control:
-  pid_gains:
-    joint1:
-      p: 100.0
-      i: 0.01
-      d: 10.0
+  gazebo_ros_control:
+    pid_gains:
+      Left_hip_joint:
+        p: 100.0
+        i: 0.01
+        d: 10.0
+      Left_knee_joint:
 ```
 
 首先，这里的控制器类型是position_controllers/JointPositionController。
 
-注意，这里要多加一个/gazebo_ros_control 的标签。不然会报错没有p增益：
+注意，这里要多加一个gazebo_ros_control 的标签。不然会报错没有p增益：
 
 ```cmd
 No p gain specified for pid.  Namespace: /robot_simple/gazebo_ros_control/pid_gains/joint1
 ```
 
-
+注意2： gazebo_ros_control和工作空间 robot_simple 要有缩进关系，不能平行。
 
 ### 3、launch 文件
 
@@ -246,7 +251,11 @@ No p gain specified for pid.  Namespace: /robot_simple/gazebo_ros_control/pid_ga
 
 ### 4、写自己的控制器
 
-这之后的工作就不难了，将自己需要的控制器写好就行。
+这之后的工作就不难了，将自己需要的控制器写好就行，比如：
+
+```
+CmdPub  = nt.advertise<std_msgs::Float64>("/robot_simple/my_pos_controller/command",10);
+```
 
 
 

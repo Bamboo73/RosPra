@@ -428,7 +428,7 @@ int main(int argc, char * argv[])
                 }
                 else
                 {
-                    BalanceCmdMsg.data = - static_cast<double>(lqr_cmd);  
+                    BalanceCmdMsg.data = static_cast<double>(lqr_cmd);  
                 }
             }
             else

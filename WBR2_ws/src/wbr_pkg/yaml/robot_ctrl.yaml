@@ -13,3 +13,44 @@ robot_wbr:
     type: effort_controllers/JointEffortController
     joint: Right_wheel_joint
     pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  # Position Controllers ---------------------------------------
+  Left_hip_ctrl:
+    type:  position_controllers/JointPositionController
+    joint: Left_hip_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    #似乎，pos控制没有pid参数...
+  Right_hip_ctrl:
+    type:  position_controllers/JointPositionController
+    joint: Right_hip_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    #似乎，pos控制没有pid参数...
+  Left_knee_ctrl:
+    type:  position_controllers/JointPositionController
+    joint: Left_knee_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    #似乎，pos控制没有pid参数...
+  Right_knee_ctrl:
+    type:  position_controllers/JointPositionController
+    joint: Right_knee_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    #似乎，pos控制没有pid参数...
+
+  gazebo_ros_control:
+    pid_gains:
+      Left_hip_joint:
+        p: 100.0
+        i: 0.01
+        d: 10.0
+      Left_knee_joint:
+        p: 100.0
+        i: 0.01
+        d: 10.0
+      Right_hip_joint:
+        p: 100.0
+        i: 0.01
+        d: 10.0
+      Right_knee_joint:
+        p: 100.0
+        i: 0.01
+        d: 10.0

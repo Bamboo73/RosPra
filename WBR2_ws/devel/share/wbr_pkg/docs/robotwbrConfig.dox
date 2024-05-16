@@ -2,12 +2,13 @@
 
 Reads and maintains the following parameters on the ROS server
 
-- \b "~pos_kp" : \b [double] pos_kp min: 0.0, default: 0.0, max: 200.0
+- \b "~pos_kp" : \b [double] pos_kp min: 0.0, default: 9.0, max: 50.0
 - \b "~pos_ki" : \b [double] pos_kp min: 0.0, default: 0.0, max: 100.0
-- \b "~pos_kd" : \b [double] pos_kp min: 0.0, default: 0.0, max: 200.0
+- \b "~pos_kd" : \b [double] pos_kp min: 0.0, default: 10.0, max: 50.0
 - \b "~k1" : \b [double] k1 min: -300.0, default: -1.0, max: 300.0
-- \b "~k2" : \b [double] k2 min: -300.0, default: 116.2, max: 300.0
-- \b "~k3" : \b [double] k3 min: -300.0, default: -1.9117, max: 300.0
-- \b "~k4" : \b [double] k4 min: -300.0, default: 10.38, max: 300.0
+- \b "~k2" : \b [double] k2 min: -300.0, default: -98.755, max: 300.0
+- \b "~k3" : \b [double] k3 min: -300.0, default: -2.4235, max: 300.0
+- \b "~k4" : \b [double] k4 min: -300.0, default: -16.483, max: 300.0
 - \b "~pid_ctrl" : \b [bool] bool pa  min: False, default: True, max: True
+- \b "~lqr_k_right" : \b [bool] bool pa  min: False, default: False, max: True
 

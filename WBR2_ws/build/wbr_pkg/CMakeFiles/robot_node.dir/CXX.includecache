@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/include/wbr_pkg/dpid_ctrl.h
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/include/wbr_pkg/lqr_ctrl.h
 
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/include/wbr_pkg/misc.h
 ros/ros.h
@@ -49,10 +49,8 @@ wbr_pkg/misc.h
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/src/wbr_pkg/misc.h
 wbr_pkg/pid.h
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/src/wbr_pkg/pid.h
-wbr_pkg/dpid_ctrl.h
-/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/src/wbr_pkg/dpid_ctrl.h
-ros/ros.h
-/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/src/ros/ros.h
+wbr_pkg/lqr_ctrl.h
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/src/wbr_pkg/lqr_ctrl.h
 dynamic_reconfigure/server.h
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/WBR2_ws/src/wbr_pkg/src/dynamic_reconfigure/server.h
 gazebo_msgs/LinkStates.h

@@ -1,14 +1,15 @@
 \subsubsection usage Usage
 \verbatim
 <node name="robotwbr" pkg="wbr_pkg" type="robotwbr">
-  <param name="pos_kp" type="double" value="0.0" />
+  <param name="pos_kp" type="double" value="9.0" />
   <param name="pos_ki" type="double" value="0.0" />
-  <param name="pos_kd" type="double" value="0.0" />
+  <param name="pos_kd" type="double" value="10.0" />
   <param name="k1" type="double" value="-1.0" />
-  <param name="k2" type="double" value="116.2" />
-  <param name="k3" type="double" value="-1.9117" />
-  <param name="k4" type="double" value="10.38" />
+  <param name="k2" type="double" value="-98.755" />
+  <param name="k3" type="double" value="-2.4235" />
+  <param name="k4" type="double" value="-16.483" />
   <param name="pid_ctrl" type="bool" value="True" />
+  <param name="lqr_k_right" type="bool" value="False" />
 </node>
 \endverbatim
 

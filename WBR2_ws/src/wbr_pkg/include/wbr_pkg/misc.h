@@ -36,11 +36,19 @@ class Robot_Class{
         float l2 = SHANK_LENGTH;
         float r = WHEEL_RADIUS;
 
+        float robot_dynamic_states[4] = {0};
+        float robot_target_states[4]  = {0};
 
         //机器人关节控制量
-        float target_hip_pos_k;  //运动学角度
-        float target_knee_pos_k;    
-        float target_hip_pos_m;  //执行电机角度
+        float target_left_hip_pos_k;  //运动学角度
+        float target_left_knee_pos_k;    
+        float target_right_hip_pos_k;  //运动学角度
+        float target_right_knee_pos_k;    
+
+        float target_hip_pos_k;  // 平行控制时候的运动学角度
+        float target_knee_pos_k; // 
+
+        float target_hip_pos_m;  //执行电机角度（在gazebo当中应该是用不上的。）
         float target_knee_pos_m; // 
         
         float target_left_wheel_trq;
@@ -59,24 +67,43 @@ class Robot_Class{
         void InitRobot(); // 初始化机器人函数。主要是控制参数等。
         void DisableRobot(){ is_robot_init = 0;}
         void Inverse_kinematic_solver(float target_h);
-        void Inverse_kinematic_solver2(float target_h);
+        void Inverse_kinematic_solver2(float target_h); //当时debug的时候写的，这俩求解器效果一样。
+
+        //定义一个函数指针，用来发送
+        //void (*pJointPosSend)(float Lhip, float Rhip , float Lknee , float Rknee);
+        //函数指似乎只用申明变量类型，不用说明变量名称。
+        void (*pJointCmdSend)(float , float  , float  , float ,float ,float);
+        void SetJointCmdSendFunctionPtr(void (*exJointCmdSend)(float , float  , float  , float ,float ,float))
+        {
+            pJointCmdSend = exJointCmdSend;
+        }
+        void CallJointCmdSend(float lh, float rh , float lk , float rk ,float lw,float rw){
+            pJointCmdSend( lh,  rh ,  lk ,  rk , lw, rw);
+        }
+
 };
 
 
 void Robot_Class::InitRobot()
 {
     //机器人参数
-    float mass_body = MASS_BODY;
-    float mass_both_shank = MASS_SHANK*2;
-    float mass_both_thigh = MASS_THIGH*2;
-    float mass_total = mass_body + mass_both_shank + mass_both_thigh; // 不需要计算轮子的位置。
-    float l1 = THIGH_LENGTH;
-    float l2 = SHANK_LENGTH;
-    float r = WHEEL_RADIUS;
+    mass_body = MASS_BODY;
+    mass_both_shank = MASS_SHANK*2;
+    mass_both_thigh = MASS_THIGH*2;
+    mass_total = mass_body + mass_both_shank + mass_both_thigh; // 不需要计算轮子的位置。
+    l1 = THIGH_LENGTH;
+    l2 = SHANK_LENGTH;
+    r = WHEEL_RADIUS;
 
     //机器人关节控制量
-    target_hip_pos_k = 0;  //运动学角度
-    target_knee_pos_k=0;    
+    target_left_hip_pos_k=0;  //运动学角度
+    target_left_knee_pos_k=0;    
+    target_right_hip_pos_k=0;  //运动学角度
+    target_right_knee_pos_k=0;  
+
+    target_hip_pos_k=0;  
+    target_knee_pos_k=0;  
+
     target_hip_pos_m=0;  //执行电机角度
     target_knee_pos_m=0; // 
 
@@ -92,6 +119,8 @@ void Robot_Class::InitRobot()
     is_robot_init = 1;
 }
 
+
+//此函数在保证机器人两腿平行控制的时候使用。
 void Robot_Class::Inverse_kinematic_solver(float target_h)
 {
     //进行高度的上下界判断

@@ -45,7 +45,7 @@
 
     <!-- 使用位置控制的关节  -->
     <!-- 这个joint_cond定义在robot.xacro 文件当中，用来判断是否使能关节位置控制 -->
-    <xacro:if value = "${joint_cond}">
+    <xacro:if value = "${is_joint_movable}">
         <xacro:Position_transmission_macro joint_name="Right_knee_joint" />
         <xacro:Position_transmission_macro joint_name="Right_hip_joint" />
         <xacro:Position_transmission_macro joint_name="Left_knee_joint" />

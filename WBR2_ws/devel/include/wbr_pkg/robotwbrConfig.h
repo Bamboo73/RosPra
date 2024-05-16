@@ -247,6 +247,7 @@ class DEFAULT
         if("k3"==(*_i)->name){k3 = boost::any_cast<double>(val);}
         if("k4"==(*_i)->name){k4 = boost::any_cast<double>(val);}
         if("pid_ctrl"==(*_i)->name){pid_ctrl = boost::any_cast<bool>(val);}
+        if("lqr_k_right"==(*_i)->name){lqr_k_right = boost::any_cast<bool>(val);}
       }
     }
 
@@ -258,6 +259,7 @@ double k2;
 double k3;
 double k4;
 bool pid_ctrl;
+bool lqr_k_right;
 
     bool state;
     std::string name;
@@ -283,6 +285,8 @@ bool pid_ctrl;
       double k4;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       bool pid_ctrl;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      bool lqr_k_right;
 //#line 231 "/opt/ros/noetic/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
     bool __fromMessage__(dynamic_reconfigure::Config &msg)
@@ -424,9 +428,9 @@ robotwbrConfig::GroupDescription<robotwbrConfig::DEFAULT, robotwbrConfig> Defaul
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.pos_kp = 0.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __max__.pos_kp = 200.0;
+      __max__.pos_kp = 50.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.pos_kp = 0.0;
+      __default__.pos_kp = 9.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<double>("pos_kp", "double", 0, "pos_kp", "", &robotwbrConfig::pos_kp)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -444,9 +448,9 @@ robotwbrConfig::GroupDescription<robotwbrConfig::DEFAULT, robotwbrConfig> Defaul
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.pos_kd = 0.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __max__.pos_kd = 200.0;
+      __max__.pos_kd = 50.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.pos_kd = 0.0;
+      __default__.pos_kd = 10.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<double>("pos_kd", "double", 0, "pos_kp", "", &robotwbrConfig::pos_kd)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -466,7 +470,7 @@ robotwbrConfig::GroupDescription<robotwbrConfig::DEFAULT, robotwbrConfig> Defaul
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.k2 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k2 = 116.2;
+      __default__.k2 = -98.755;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<double>("k2", "double", 0, "k2", "", &robotwbrConfig::k2)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -476,7 +480,7 @@ robotwbrConfig::GroupDescription<robotwbrConfig::DEFAULT, robotwbrConfig> Defaul
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.k3 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k3 = -1.9117;
+      __default__.k3 = -2.4235;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<double>("k3", "double", 0, "k3", "", &robotwbrConfig::k3)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -486,7 +490,7 @@ robotwbrConfig::GroupDescription<robotwbrConfig::DEFAULT, robotwbrConfig> Defaul
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.k4 = 300.0;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
-      __default__.k4 = 10.38;
+      __default__.k4 = -16.483;
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<double>("k4", "double", 0, "k4", "", &robotwbrConfig::k4)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
@@ -501,6 +505,16 @@ robotwbrConfig::GroupDescription<robotwbrConfig::DEFAULT, robotwbrConfig> Defaul
       Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<bool>("pid_ctrl", "bool", 0, "bool pa ", "", &robotwbrConfig::pid_ctrl)));
 //#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<bool>("pid_ctrl", "bool", 0, "bool pa ", "", &robotwbrConfig::pid_ctrl)));
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __min__.lqr_k_right = 0;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __max__.lqr_k_right = 1;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __default__.lqr_k_right = 0;
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      Default.abstract_parameters.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<bool>("lqr_k_right", "bool", 0, "bool pa ", "", &robotwbrConfig::lqr_k_right)));
+//#line 291 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+      __param_descriptions__.push_back(robotwbrConfig::AbstractParamDescriptionConstPtr(new robotwbrConfig::ParamDescription<bool>("lqr_k_right", "bool", 0, "bool pa ", "", &robotwbrConfig::lqr_k_right)));
 //#line 246 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.convertParams();
 //#line 246 "/opt/ros/noetic/lib/python3/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
