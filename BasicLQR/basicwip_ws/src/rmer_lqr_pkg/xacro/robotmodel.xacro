@@ -31,7 +31,7 @@
     <link name="base_link">
       <visual>
         <geometry>
-          <box size="0.01 0.5 0.01"/>
+          <box size="0.02 0.5 0.02"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <material name="yellow">
@@ -40,11 +40,13 @@
       </visual>
       <collision>
         <geometry>
-          <box size="0.01 0.5 0.01"/>
+          <box size="0.02 0.5 0.02"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
       </collision>
-      <xacro:Box_inertial_matrix m="0.01" w="0.01" h="0.5" l = "0.01" />
+      <inertial>
+        <xacro:Box_inertial_matrix m="0.01" w="0.02" h="0.5" l = "0.02" />
+      </inertial>
     </link>
 
 
@@ -61,7 +63,7 @@
     <link name="vertical_link">
       <visual>
         <geometry>
-         <box size="0.01 0.01 0.5"/>
+         <box size="0.02 0.02 0.5"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <material name="yellow">
@@ -70,14 +72,14 @@
       </visual>
       <collision>
         <geometry>
-          <box size="0.01 0.01 0.5"/>
+          <box size="0.02 0.02 0.5"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
       </collision>
-      <inertia>
+      <inertial>
         <!-- 这里给了杆一个质量，为了控制的时候考虑这部分内容。 -->
-        <xacro:Box_inertial_matrix m="0.5" w="0.01" h="0.01" l = "0.5" />
-      </inertia>
+        <xacro:Box_inertial_matrix m="0.5" w="0.02" h="0.02" l = "0.5" />
+      </inertial>
     </link>
 
     <joint name="base2vertial_link" type="fixed">
@@ -130,7 +132,7 @@
     <link name="mass_link">
       <visual>
         <geometry>
-         <sphere radius = "0.1"/>
+         <box size="0.3 0.3 0.2"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <material name="yellow">
@@ -139,19 +141,23 @@
       </visual>
       <collision>
         <geometry>
-          <sphere radius = "0.1"/>
+          <box size="0.3 0.3 0.2"/>
         </geometry>
         <origin xyz="0 0 0" rpy="0 0 0" />
       </collision>
-      <xacro:sphere_inertial_matrix m="10" r="0.1" />
+      <inertial>
+        <xacro:Box_inertial_matrix m="10" w="0.3" h="0.3" l = "0.2" />
+      </inertial>
     </link>
 
-    <joint name="mass2vertial_joint" type="fixed">
+    <joint name="mass2vertial_joint" type="revolute">
       <parent link="vertical_link" />
       <child link="mass_link" />
       <origin xyz="0 0 0.25" />
+      <axis xyz = "0 1 0"/>
+      <limit lower="-1.57" upper="1.57" effort="50" velocity="20.0"/>
     </joint>
-
+    
     <gazebo reference="mass_link">
         <material>Gazebo/Red</material>
     </gazebo>

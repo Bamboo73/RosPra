@@ -1,0 +1,24 @@
+robot_lqr2:
+  # 本包的机器人命名空间是robot_wbr;
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Effort Controllers   ---------------------------------------
+
+  right_wheel_ctrl:
+    type: effort_controllers/JointEffortController
+    joint: right_wheel_joint
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+    pid: {p: 0, i: 0, d: 0}
+
+  left_wheel_ctrl:
+    type: effort_controllers/JointEffortController
+    joint: left_wheel_joint
+    pid: {p: 0, i: 0, d: 0}
+    
+  hip_ctrl:
+    type: effort_controllers/JointEffortController
+    joint: mass2vertial_joint
+    pid: {p: 0, i: 0, d: 0}
