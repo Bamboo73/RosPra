@@ -1,2 +1,2 @@
-basic_lqr_pkg
+basic_lqr_pkg:rmer_lqr_pkg
 -DCATKIN_DEVEL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/devel -DCMAKE_INSTALL_PREFIX=/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/install -G Unix Makefiles

@@ -6,3 +6,4 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("basic_lqr_pkg")
+subdirs("rmer_lqr_pkg")

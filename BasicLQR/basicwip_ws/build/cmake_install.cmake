@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/gtest/cmake_install.cmake")
   include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/basic_lqr_pkg/cmake_install.cmake")
+  include("/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/cmake_install.cmake")
 
 endif()
 

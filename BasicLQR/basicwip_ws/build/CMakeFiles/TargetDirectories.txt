@@ -149,3 +149,11 @@
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/basic_lqr_pkg/CMakeFiles/bond_generate_messages_py.dir
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/basic_lqr_pkg/CMakeFiles/install/local.dir
 /home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/basic_lqr_pkg/CMakeFiles/nav_msgs_generate_messages_eus.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/install/strip.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/install/local.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/install.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/list_install_components.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/rebuild_cache.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/edit_cache.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/test.dir
+/home/bamboo70/MyDocs/ROSPra/ReviewFiles/BasicLQR/basicwip_ws/build/rmer_lqr_pkg/CMakeFiles/rmer_lqr_pkg_xacro_generated_to_devel_space_.dir

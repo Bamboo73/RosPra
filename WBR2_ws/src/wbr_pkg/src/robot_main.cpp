@@ -23,7 +23,15 @@ Robot_Class Myrobot; //不知道为什么会标红... ... 在misc.h 里面写的
 PID_Class Balance_Pid;
 PID_Class Vel_Pid;
 
+
 Lqr_Class Balance_Lqr;
+// 240522 目前使用的是6个状态，顺序为： x θ φ dx dθ dφ (和参考文档不一样)
+
+float Test_LQR_OUTPUT[2] = {0};
+
+
+
+
 bool Ctrl_mode = 1;
 bool Is_Lqr_Right = 1;
 
@@ -87,6 +95,10 @@ void doGazeboLinkMsg(const gazebo_msgs::LinkStates::ConstPtr & msg)
     Myrobot.robot_dynamic_states[2] = (vell + velr)/2.0;
     // ROS_INFO("direct get vel dx: %.3f",0.5*(velr+ vell));
 
+    Balance_Lqr.System_States[0] = (posr + posl)/2.0;
+    Balance_Lqr.System_States[3] = (vell + velr)/2.0;
+    
+
 }
 
 void doImuMsg(const  sensor_msgs::Imu::ConstPtr & msg_p){  // 传感器的回调函数
@@ -107,6 +119,13 @@ void doImuMsg(const  sensor_msgs::Imu::ConstPtr & msg_p){  // 传感器的回调
 
     Myrobot.robot_dynamic_states[1] = theta;
     Myrobot.robot_dynamic_states[3] = msg_p->angular_velocity.y;
+
+    //以下是长度为6的lqr控制器。
+    Balance_Lqr.System_States[1] = theta;
+    Balance_Lqr.System_States[2] = phi;
+    Balance_Lqr.System_States[4] = msg_p->angular_velocity.y;
+    Balance_Lqr.System_States[5] = msg_p->angular_velocity.z;
+
 }
 
 void DynamicPara(wbr_pkg::robotwbrConfig& config, uint32_t level){
@@ -114,16 +133,32 @@ void DynamicPara(wbr_pkg::robotwbrConfig& config, uint32_t level){
     Balance_Pid.kp = config.pos_kp;
     Balance_Pid.ki = config.pos_ki;
 
-
-    Balance_Lqr.K_Matrix[0] = config.k1;
-    Balance_Lqr.K_Matrix[1] = config.k2;
-    Balance_Lqr.K_Matrix[2] = config.k3;
-    Balance_Lqr.K_Matrix[3] = config.k4;
+    
+    // Balance_Lqr.K_Matrix[0] = config.k1;
+    // Balance_Lqr.K_Matrix[1] = config.k2;
+    // Balance_Lqr.K_Matrix[2] = config.k3;
+    // Balance_Lqr.K_Matrix[3] = config.k4;
 
     Ctrl_mode = config.pid_ctrl;
     Is_Lqr_Right = config.lqr_k_right;
 }
 
+void Test_LQR()
+{
+    float u_L = 0;
+    float u_R = 0;
+    // float KL[6] = {-0.7071, -1.6846, -18.2129, -5.3451, 0.7071, 0.8227};
+    // float KR[6] = {-0.7071, -1.6846, -18.2129, -5.3451, -0.7071, -0.8227};
+    float KL[6] = {-2.23607,  -18.71764,   -0.70711,   -2.96835 ,  -3.97869,   -0.76366};
+    float KR[6] = {-2.23607,  -18.71764,   0.70711  , -2.96835 ,  -3.97869  ,  0.76366};
+    for (int i = 0;i<6;i++)
+    {
+        u_L += KL[i]*(0 - Balance_Lqr.System_States[i]);
+        u_R += KR[i]*(0 - Balance_Lqr.System_States[i]);
+    }
+    Test_LQR_OUTPUT[0] = u_L; //将左腿计算结构赋值到全局变量，以备后续使用
+    Test_LQR_OUTPUT[1] = u_R;
+};
 
 
 int main(int argc, char * argv[])
@@ -147,7 +182,8 @@ int main(int argc, char * argv[])
     ros::Subscriber ReadImuValue = nh.subscribe<sensor_msgs::Imu>("imu",10,doImuMsg);
     ros::Subscriber ReadGazeboLinkValues = nh.subscribe<gazebo_msgs::LinkStates>("/gazebo/link_states",10,doGazeboLinkMsg);
         
-    //所有和主动发送机器人状态有关的节点，统一在/robot_observe之下
+    //所有和主动发送机器人
+    //状态有关的节点，统一在/robot_observe之下
     RobotPitchAngle = nh.advertise<std_msgs::Float64>("/robot_ob/posture_pitch",10);
     RobotYawAngle = nh.advertise<std_msgs::Float64>("/robot_ob/posture_yaw",10);
     BalancePidCmdObPub = nh.advertise<std_msgs::Float64>("/robot_ob/pid_cmd",10);
@@ -179,20 +215,19 @@ int main(int argc, char * argv[])
     {
         //计算得到两个轮子的驱动力矩。
         float temp_pid = -Balance_Pid.Calculate_pid_output(Myrobot.pitch);
-        float temp_lqr;
-            if(Is_Lqr_Right == 1)
-                temp_lqr = Balance_Lqr.LqrCalculate(Myrobot.robot_dynamic_states);
-            else if (Is_Lqr_Right == 0)
-                temp_lqr = -Balance_Lqr.LqrCalculate(Myrobot.robot_dynamic_states);
+        Test_LQR();
+        Myrobot.Inverse_kinematic_solver(0.36);
 
-        BalanceLqrCmdObMsg.data = temp_lqr;
         if(Ctrl_mode == 1){
             Myrobot.target_left_wheel_trq = temp_pid;
             Myrobot.target_right_wheel_trq = Myrobot.target_left_wheel_trq;
         }
         else if(Ctrl_mode == 0){
-            Myrobot.target_left_wheel_trq = temp_lqr;
-            Myrobot.target_right_wheel_trq = Myrobot.target_left_wheel_trq;
+            // Myrobot.target_left_wheel_trq = temp_lqr;
+            // Myrobot.target_right_wheel_trq = Myrobot.target_left_wheel_trq;
+            Myrobot.target_left_wheel_trq = Test_LQR_OUTPUT[0];
+            Myrobot.target_right_wheel_trq = Test_LQR_OUTPUT[1];
+
         }
         Myrobot.target_left_hip_pos_k = 0.367;
         Myrobot.target_right_hip_pos_k = 0.367;
